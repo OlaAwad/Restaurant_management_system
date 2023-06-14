@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+:root{
+    --mainColor: #274690;
+    --gb: #f2eee8;
+}
+.action-btn{
+    background-color: var(--mainColor);
+    color: white;
+    transition: transform 0.4s;
+}
+.action-btn:hover{
+    background-color: var(--mainColor);
+    color: white;
+    transform: scale(1.05);
+}
