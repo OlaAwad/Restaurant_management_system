@@ -1,3 +1,7 @@
-<app-header></app-header>
-<router-outlet style="display: block; margin-top: 100px;"></router-outlet>
+<!-- <app-header></app-header> -->
+<!-- <router-outlet style="display: block; margin-top: 100px;"></router-outlet> -->
+<router-outlet style="display: block;"></router-outlet>
+
+<app-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav>
+<app-sidenav-body [collapsed]="isSideNavCollapsed" [screenWidth]="screenWidth"></app-sidenav-body>
 <!-- <app-employee-auth></app-employee-auth> -->

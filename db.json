@@ -1,10 +1,10 @@
 {
-  "employees": [
+  "Employees": [
     {
-      "name": "Ola Awad",
-      "password": "123456",
-      "email": "ola@gmail.com",
-      "id": 1
+      "Name": "Ola Awad",
+      "Password": "123456",
+      "Email": "ola@gmail.com",
+      "employeeId": 1
     }
   ]
 }

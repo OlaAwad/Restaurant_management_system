@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SideNavToggle } from './data-types';
 import { EmployeeService } from './services/employee.service';
 
 @Component({
@@ -8,6 +9,13 @@ import { EmployeeService } from './services/employee.service';
 })
 export class AppComponent {
   title = 'posRestaurant';
+
+  isSideNavCollapsed = false
+  screenWidth = 0
+  onToggleSideNav(data: SideNavToggle){
+    this.screenWidth = data.screenWidth
+    this.isSideNavCollapsed = data.collapsed
+  }
 
   constructor(private employeeService: EmployeeService){}
   ngOnInit(){

@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 :root{
-    --mainColor: #274690;
+    /* --mainColor: #274690; */
+    --mainColor: #19326b;
     --gb: #f2eee8;
+    --danger: #e01432;
+    
 }
 .action-btn{
     background-color: var(--mainColor);
@@ -13,3 +16,5 @@
     color: white;
     transform: scale(1.05);
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}

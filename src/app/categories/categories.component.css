@@ -1,0 +1,6 @@
+.fa-pen-to-square{
+    color: var(--mainColor);
+}
+.fa-trash{
+    color: var(--danger);
+}
