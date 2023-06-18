@@ -1,22 +1,30 @@
-<h2 class="text-center">Categories</h2>
+<h2>Categories</h2>
+
+<div class="add btn mb-3" (click)="OpenAddCategoryModal()">
+  <i class="fa-solid fa-plus"></i>
+</div>
 
 <table class="table">
-    <thead>
-      <tr class="text-center">
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="text-center">
-        <th scope="row">1</th>
-        <td>Otto</td>
-        <td>
-            <i class="fa-solid fa-pen-to-square pr-2"></i>
-            <i class="fa-solid fa-trash"></i>
-        </td>
-      </tr>
-     
-    </tbody>
-  </table>
+  <thead>
+    <tr class="text-center">
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <!-- <th scope="col">Image</th> -->
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-center" *ngFor="let category of categories">
+      <th scope="row">{{ category.id }}</th>
+      <td>{{ category.CategoryName }}</td>
+      <!-- <td><img src="{{category.CategoryImage}}" alt="" class="img-fluid w-25"></td> -->
+      <td>
+        <i
+          class="fa-solid fa-pen-to-square pr-2"
+          (click)="openUpdateCategoryModal(category.id)"
+        ></i>
+        <i class="fa-solid fa-trash" (click)="deleteCategory(category.id)"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>

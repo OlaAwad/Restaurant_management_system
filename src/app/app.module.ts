@@ -20,8 +20,11 @@ import { CategoriesComponent } from './categories/categories.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ProductsComponent } from './products/products.component';
 import { SalesComponent } from './sales/sales.component';
-import { SettingsComponent } from './settings/settings.component'
- 
+import { SettingsComponent } from './settings/settings.component';
+import { AddCategoryModalComponent } from './add-category-modal/add-category-modal.component'
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { UpdateCategoryModalComponent } from './update-category-modal/update-category-modal.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { SettingsComponent } from './settings/settings.component'
     OrdersComponent,
     ProductsComponent,
     SalesComponent,
-    SettingsComponent
+    SettingsComponent,
+    AddCategoryModalComponent,
+    UpdateCategoryModalComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +52,10 @@ import { SettingsComponent } from './settings/settings.component'
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    NgbModule
     ],
-  providers: [],
+  providers: [NgbActiveModal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

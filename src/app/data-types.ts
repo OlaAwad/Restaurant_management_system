@@ -1,15 +1,21 @@
 export interface SignUp{
-    name: string,
-    password: string,
-    email: string
+    Name: string,
+    Password: string,
+    Email: string
 }
 
 export interface Login{
-    email: string,
-    password: string
+    Email: string,
+    Password: string
 }
 
 export interface SideNavToggle{
-    screenWidth: number,
-    collapsed: boolean
+    ScreenWidth: number,
+    Collapsed: boolean
+}
+
+export interface Category{
+    CategoryName: string,
+    CategoryImage: string,
+    id: number
 }

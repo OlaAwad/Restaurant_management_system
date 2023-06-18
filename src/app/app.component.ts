@@ -13,8 +13,8 @@ export class AppComponent {
   isSideNavCollapsed = false
   screenWidth = 0
   onToggleSideNav(data: SideNavToggle){
-    this.screenWidth = data.screenWidth
-    this.isSideNavCollapsed = data.collapsed
+    this.screenWidth = data.ScreenWidth
+    this.isSideNavCollapsed = data.Collapsed
   }
 
   constructor(private employeeService: EmployeeService){}

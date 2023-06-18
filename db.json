@@ -4,7 +4,29 @@
       "Name": "Ola Awad",
       "Password": "123456",
       "Email": "ola@gmail.com",
-      "employeeId": 1
+      "EmployeeId": 1
+    }
+  ],
+  "Categories": [
+    {
+      "CategoryName": "Soups",
+      "CategoryImage": "https://images.unsplash.com/photo-1541095441899-5d96a6da10b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c291cHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "id": 1
+    },
+    {
+      "CategoryName": "Meals",
+      "CategoryImage": "https://images.unsplash.com/photo-1619371042685-827b1c646923?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fG1lYWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+      "id": 2
+    },
+    {
+      "CategoryName": "Pizza",
+      "CategoryImage": "https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBpenphfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+      "id": 3
+    },
+    {
+      "CategoryName": "Sandwich",
+      "CategoryImage": "https://images.unsplash.com/photo-1554433607-66b5efe9d304?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2FuZHdpY2h8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+      "id": 4
     }
   ]
 }

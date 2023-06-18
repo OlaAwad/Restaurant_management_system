@@ -28,7 +28,7 @@ export class EmployeeService {
   }
 
   employeeLogin(data: Login){
-    this.http.get(`http://localhost:3000/employees?email=${data.email}&password=${data.password}`, {observe:'response'}).subscribe((result: any) => {
+    this.http.get(`http://localhost:3000/employees?Email=${data.Email}&Password=${data.Password}`, {observe:'response'}).subscribe((result: any) => {
       if(result && result.body && result.body.length){
         localStorage.setItem('employee', JSON.stringify(result.body))
         this.router.navigate(['home'])

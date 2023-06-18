@@ -1,6 +1,26 @@
+h2{
+    color: var(--mainColor);
+    text-transform: uppercase;
+}
+.add{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4%;
+    /* margin: auto; */
+    background: var(--mainColor);
+    color: white;
+}
+.add:hover{
+    background-color: #fff;
+    color: var(--mainColor);
+    border: 1px solid var(--mainColor);
+}
 .fa-pen-to-square{
     color: var(--mainColor);
+    cursor: pointer;
 }
 .fa-trash{
     color: var(--danger);
+    cursor: pointer;
 }
