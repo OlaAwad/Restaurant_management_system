@@ -24,6 +24,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { AddCategoryModalComponent } from './add-category-modal/add-category-modal.component'
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateCategoryModalComponent } from './update-category-modal/update-category-modal.component';
+import { AddProductModalComponent } from './add-product-modal/add-product-modal.component';
+import { UpdateProductModalComponent } from './update-product-modal/update-product-modal.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { UpdateCategoryModalComponent } from './update-category-modal/update-cat
     SalesComponent,
     SettingsComponent,
     AddCategoryModalComponent,
-    UpdateCategoryModalComponent
+    UpdateCategoryModalComponent,
+    AddProductModalComponent,
+    UpdateProductModalComponent
   ],
   imports: [
     BrowserModule,

@@ -10,24 +10,24 @@ export class CategoriesService {
 constructor(private http: HttpClient) { }
 
   addCategory(data: Category){
-    return this.http.post<Category>(`${this.apiUrl}/categories`, data)
-  }
-
-  getCategories(){
-    return this.http.get<Category[]>(`${this.apiUrl}/categories`)
+    return this.http.post<Category>(`${this.apiUrl}/Categories`, data)
   }
 
   getCategory(categoryId: number){
-    return this.http.get<Category>(`${this.apiUrl}/categories/${categoryId}`)
+    return this.http.get<Category>(`${this.apiUrl}/Categories/${categoryId}`)
   }
+
+  getCategories(){
+    return this.http.get<Category[]>(`${this.apiUrl}/Categories`)
+  }  
 
   updateCategory(category: Category){
     console.log('catId: ', category.id)
-    return this.http.put<Category>(`${this.apiUrl}/categories/${category.id}`, category)
+    return this.http.put<Category>(`${this.apiUrl}/Categories/${category.id}`, category)
   }
 
   deleteCategory(categoryId: number){
-    return this.http.delete<Category>(`${this.apiUrl}/categories/${categoryId}`)
+    return this.http.delete<Category>(`${this.apiUrl}/Categories/${categoryId}`)
   }
 
 

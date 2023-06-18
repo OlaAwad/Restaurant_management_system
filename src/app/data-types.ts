@@ -19,3 +19,13 @@ export interface Category{
     CategoryImage: string,
     id: number
 }
+
+export interface Product{
+    ProductName: string,
+    ProductImage: string,
+    ProductPrice: number,
+    ProductQuantity: number,
+    ProductAvailableQuantity: number,
+    ProductCategory: Category
+    id: number
+}

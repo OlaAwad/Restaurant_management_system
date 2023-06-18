@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Category } from '@app/data-types';
 import { CategoriesService } from '@app/services/categories.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
