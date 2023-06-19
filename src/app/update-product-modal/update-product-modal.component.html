@@ -1,1 +1,69 @@
-<p>update-product-modal works!</p>
+<div class="modal-container">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-center w-100">
+          <h4 class="modal-title">Update Product</h4>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <form
+                  #updateProduct="ngForm"
+                  class="d-flex flex-column align-items-center"
+                  (ngSubmit)="submit(updateProduct.value)"
+                >
+                  <input
+                    type="text"
+                    class="form-control mb-2 w-75"
+                    placeholder="Enter Product Name"
+                    name="ProductName"
+                    ngModel="{{productData?.ProductName}}"
+                  />
+                  <input
+                    type="text"
+                    class="form-control mb-2 w-75"
+                    placeholder="Enter Product Image URL"
+                    name="ProductImage"
+                    ngModel="{{productData?.ProductImage}}"
+                  />
+                  <input
+                    type="number"
+                    class="form-control mb-2 w-75"
+                    placeholder="Enter Product Price"
+                    name="ProductPrice"
+                    ngModel="{{productData?.ProductPrice}}"
+                  />
+                  <input
+                    type="number"
+                    class="form-control mb-2 w-75"
+                    placeholder="Enter Product Available Quantity"
+                    name="ProductAvailableQuantity"
+                    ngModel="{{productData?.ProductAvailableQuantity}}"
+                  />
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                      Category
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" *ngFor="let category of categories" (click)="onCategorySelected(category)">{{category.CategoryName}}</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="submit(updateProduct.value)"
+            [disabled]="updateProduct.invalid"
+          >
+            Update
+          </button>
+          <button type="button" class="btn btn-dark" (click)="cancel()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -31,16 +31,28 @@
   ],
   "Products": [
     {
+      "id": 1,
       "ProductName": "Chicken Ranch Pizza",
       "ProductImage": "https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJhbmNoJTIwcGl6emF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-      "ProductPrice": 150,
-      "ProductAvailableQuantity": 5,
-      "ProductCategory": {
-        "CategoryName": "Pizza",
-        "CategoryImage": "https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBpenphfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-        "id": 3
-      },
-      "id": 1
+      "ProductPrice": "150",
+      "ProductAvailableQuantity": "7",
+      "ProductCategory": "Pizza"
+    },
+    {
+      "id": 2,
+      "ProductName": "Tomato Soup",
+      "ProductImage": "https://images.unsplash.com/photo-1578861256505-d3be7cb037d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c291cHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "ProductPrice": "50",
+      "ProductAvailableQuantity": "5",
+      "ProductCategory": "Soups"
+    },
+    {
+      "ProductName": "Chicken Sandwich",
+      "ProductImage": "https://images.unsplash.com/photo-1584947897804-408958123f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNoaWNrZW4lMjBzYW5kd2ljaHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "ProductPrice": 120,
+      "ProductAvailableQuantity": 15,
+      "ProductCategory": "Sandwich",
+      "id": 4
     }
   ]
 }

@@ -24,8 +24,8 @@ export interface Product{
     ProductName: string,
     ProductImage: string,
     ProductPrice: number,
-    ProductQuantity: number,
+    ProductQuantity?: number,
     ProductAvailableQuantity: number,
-    ProductCategory: Category
+    ProductCategory: string
     id: number
 }

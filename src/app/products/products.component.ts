@@ -37,6 +37,14 @@ export class ProductsComponent implements OnInit {
   openUpdateProductModal(productId: number){
     let modalRef = this.modalService.open(UpdateProductModalComponent)
     modalRef.componentInstance.productId = productId
+    modalRef.componentInstance.onProductUpdated = this.onProductUpdated.bind(this)
+  }
+
+  onProductUpdated(updatedProduct: Product){
+    let index = this.products.findIndex((c) => c.id === updatedProduct.id)
+    if(index >= 0){
+      this.products[index] = updatedProduct
+    }
   }
 
   deleteProduct(productId: number){

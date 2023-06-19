@@ -13,7 +13,7 @@ export class AddProductModalComponent implements OnInit {
 
   onProductAdded?: (newProduct: Product) => void
   categories: Category[] = []
-  selectedCategory: Category | undefined
+  selectedCategory: string | undefined
 
   constructor(public modal: NgbActiveModal, private productsService: ProductsService, private categoriesService: CategoriesService) { }
 
@@ -28,7 +28,8 @@ export class AddProductModalComponent implements OnInit {
   }
 
   onCategorySelected(category: Category){
-    this.selectedCategory = category
+    console.log('selectedCategory: ', category.CategoryName)
+    this.selectedCategory = category.CategoryName
   }
 
   submit(data: Product){
