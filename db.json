@@ -54,5 +54,10 @@
       "ProductCategory": "Sandwich",
       "id": 4
     }
+  ],
+  "EmpType": [
+    {
+      "id": 1
+    }
   ]
 }

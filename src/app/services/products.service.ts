@@ -30,5 +30,9 @@ constructor(private http: HttpClient) { }
     return this.http.delete<Product>(`${this.apiUrl}/Products/${productId}`)
   }
 
+  searchProducts(query: string){
+    return this.http.get<Product[]>(`${this.apiUrl}/Products?q=${query}`)
+  }
+
 
 }

@@ -1,7 +1,28 @@
 <!-- <app-header></app-header> -->
+<!-- <app-entry-point></app-entry-point>  -->
 <!-- <router-outlet style="display: block; margin-top: 100px;"></router-outlet> -->
-<router-outlet style="display: block;"></router-outlet>
-
-<app-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav>
-<app-sidenav-body [collapsed]="isSideNavCollapsed" [screenWidth]="screenWidth"></app-sidenav-body>
+<!-- <router-outlet style="display: block;"></router-outlet> -->
+<!--<app-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav>
+<app-sidenav-body [collapsed]="isSideNavCollapsed" [screenWidth]="screenWidth"></app-sidenav-body> -->
 <!-- <app-employee-auth></app-employee-auth> -->
+<!-- <app-sidenav
+  (onToggleSideNav)="onToggleSideNav($event)"
+  *ngIf="!(isEmployeeAuth || isEntryPoint)"
+></app-sidenav>
+<app-sidenav-body
+  [collapsed]="isSideNavCollapsed"
+  [screenWidth]="screenWidth"
+  *ngIf="!(isEmployeeAuth || isEntryPoint)"
+></app-sidenav-body> -->
+<!-- <ng-container *ngIf="!(isEmployeeAuth || isEntryPoint)"> -->
+    <!-- <app-sidenav (onToggleSideNav)="onToggleSideNav($event)" *ngIf="showSidenav$"></app-sidenav> -->
+    <app-sidenav (onToggleSideNav)="onToggleSideNav($event)" *ngIf="showSN$"></app-sidenav>
+    <app-sidenav-body [collapsed]="isSideNavCollapsed" [screenWidth]="screenWidth"></app-sidenav-body>
+<!-- </ng-container> -->
+<!-- <ng-container *ngIf="isEmployeeAuth || isEntryPoint">
+    <router-outlet></router-outlet>
+</ng-container> -->
+
+<!-- <ng-container *ngIf="showSidenav">
+    <router-outlet></router-outlet>
+</ng-container> -->

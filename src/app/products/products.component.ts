@@ -12,6 +12,7 @@ import { UpdateProductModalComponent } from '@app/update-product-modal/update-pr
 export class ProductsComponent implements OnInit {
 
   products: Product[] = []
+  searchResult: undefined | Product[]
 
   constructor(private modalService: NgbModal, private productsService: ProductsService) { }
 
@@ -54,6 +55,20 @@ export class ProductsComponent implements OnInit {
         this.products.splice(index, 1)
       }
     })
+  }
+
+  searchProduct(query: KeyboardEvent){
+    if(query){
+      let element = query.target as HTMLInputElement
+      this.productsService.searchProducts(element.value).subscribe((result) => {
+        // if(result.length > 5){
+        //   result.length = 5
+        // }
+        // this.searchResult = result
+        // this.products = this.searchResult
+        this.products = result
+      })
+    }
   }
 
 }

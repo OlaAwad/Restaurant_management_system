@@ -26,6 +26,7 @@ import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateCategoryModalComponent } from './update-category-modal/update-category-modal.component';
 import { AddProductModalComponent } from './add-product-modal/add-product-modal.component';
 import { UpdateProductModalComponent } from './update-product-modal/update-product-modal.component';
+import { EntryPointComponent } from './entry-point/entry-point.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { UpdateProductModalComponent } from './update-product-modal/update-produ
     AddCategoryModalComponent,
     UpdateCategoryModalComponent,
     AddProductModalComponent,
-    UpdateProductModalComponent
+    UpdateProductModalComponent,
+    EntryPointComponent
   ],
   imports: [
     BrowserModule,

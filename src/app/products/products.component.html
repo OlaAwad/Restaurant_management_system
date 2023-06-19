@@ -1,7 +1,20 @@
-<h2>Products</h2>
+<h2 class="text-center">Products</h2>
 
-<div class="add btn mb-3" (click)="OpenAddProductModal()">
-  <i class="fa-solid fa-plus"></i>
+<div class="d-flex flex-column align-items-center">
+  <form class="form-inline mb-2 d-flex searchForm">
+    <input
+      #searchInput
+      class="form-control mr-sm-2"
+      type="text"
+      placeholder="Search Products"
+      aria-label="Search"
+      (keyup)="searchProduct($event)"
+    />
+  </form>
+  <div class="add btn mb-3" (click)="OpenAddProductModal()">
+    <i class="fa-solid fa-plus"></i>
+  </div>
+  
 </div>
 
 <table class="table">

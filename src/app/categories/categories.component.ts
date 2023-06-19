@@ -12,6 +12,7 @@ import { UpdateCategoryModalComponent } from '@app/update-category-modal/update-
 })
 export class CategoriesComponent implements OnInit {
   categories: Category[] = []
+  searchResult: undefined | Category[]
 
   constructor(
     private modalService: NgbModal,
@@ -64,4 +65,21 @@ export class CategoriesComponent implements OnInit {
     })
     
   }
+
+  searchCategory(query: KeyboardEvent){
+    if(query){
+      let element = query.target as HTMLInputElement
+      // console.log('element: ', element.value)
+      this.categoriesService.searchCategories(element.value).subscribe((result) => {
+        // if(result.length > 5){
+        //   result.length = 5
+        // }
+        // this.searchResult = result
+        // console.log('res: ', this.searchResult)
+        // this.categories = this.searchResult
+        this.categories = result
+      })
+    }
+  }
+
 }

@@ -8,6 +8,7 @@ import {
 } from '@angular/core'
 import { SideNavToggle } from '@app/data-types'
 import { navbarData } from '@app/nav-data'
+import { EmployeeService } from '@app/services/employee.service'
 
 @Component({
   selector: 'app-sidenav',
@@ -42,7 +43,7 @@ export class SidenavComponent implements OnInit {
   Collapsed = true
   ScreenWidth = 0
   navData = navbarData
-  constructor() {}
+  constructor(private employeeService: EmployeeService) {}
 
   @HostListener('window: resize', ['$event'])
   onResize(event: any) {
@@ -58,6 +59,7 @@ export class SidenavComponent implements OnInit {
 
   ngOnInit(): void {
     this.ScreenWidth = window.innerWidth
+    this.getEmployeeType()
   }
 
   toggleCollapse() {
@@ -74,5 +76,10 @@ export class SidenavComponent implements OnInit {
       Collapsed: this.Collapsed,
       ScreenWidth: this.ScreenWidth,
     })
+  }
+
+  getEmployeeType(){
+    let type = this.employeeService.getEmployeeType()
+    console.log('type: ', type)
   }
 }

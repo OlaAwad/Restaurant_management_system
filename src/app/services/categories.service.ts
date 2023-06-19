@@ -30,6 +30,10 @@ constructor(private http: HttpClient) { }
     return this.http.delete<Category>(`${this.apiUrl}/Categories/${categoryId}`)
   }
 
+  searchCategories(query: string){
+    return this.http.get<Category[]>(`${this.apiUrl}/Categories?q=${query}`)
+  }
+
 
 
 }

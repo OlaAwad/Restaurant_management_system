@@ -1,5 +1,5 @@
 <div class="employee-auth mt-5 text-center">
-    <div class="signup mb-4" *ngIf="!showLogin">
+    <!-- <div class="signup mb-4" *ngIf="!showLogin">
       <h4 class="mt-3 text-center">Employee Sign Up</h4>
       <form
         #employeeSignUp="ngForm"
@@ -32,10 +32,10 @@
        
       </form>
     </div>
-  
+   -->
     <!-- Start Login -->
+    <h2 class="text-center mb-5">Employee Login</h2>
     <div class="Login mb-4" *ngIf="showLogin">
-      <h4 class="mt-3 text-center">Employee Login</h4>
       <p class="error-p">{{authError}}</p>
       <form
         #employeeLogin="ngForm"
@@ -43,34 +43,34 @@
         class="d-flex flex-column align-items-center"
       >
         <input
-          class="form-control mb-2 w-75"
+          class="form-control mb-3 w-50"
           type="text"
           placeholder="Enter your email"
           name="Email"
           ngModel
         />
         <input
-          class="form-control mb-2 w-75"
+          class="form-control mb-2 w-50"
           type="password"
           placeholder="Enter your password"
           name="Password"
           ngModel
         />
   
-        <button class="btn action-btn my-3">Login</button>
+        <button class="btn btn-lg action-btn mb-3 mt-5">Login</button>
   
         
   
       </form>
     </div>
     <!-- End Login -->
-    <Span *ngIf="!showLogin">
+    <!-- <Span *ngIf="!showLogin">
       Already have account?
       <a class="auth-toggle-link" (click)="openLogin()">Click here to Login</a>
     </Span>
     <Span *ngIf="showLogin">
       Don't have account?
       <a class="auth-toggle-link" (click)="openSignUp()">Click here to SignUp</a>
-    </Span>
+    </Span> -->
   </div>
   

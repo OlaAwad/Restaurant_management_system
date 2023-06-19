@@ -1,4 +1,6 @@
 import { Component, OnInit} from '@angular/core';
+import { SideNavToggle } from '@app/data-types';
+import { EmployeeService } from '@app/services/employee.service';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +9,16 @@ import { Component, OnInit} from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
- 
-  constructor() { }
+  // isSideNavCollapsed = false
+  // screenWidth = 0
+  // onToggleSideNav(data: SideNavToggle){
+  //   this.screenWidth = data.ScreenWidth
+  //   this.isSideNavCollapsed = data.Collapsed
+  // }
 
-  ngOnInit(): void {
+  constructor(private employeeService: EmployeeService){}
+  ngOnInit(){
+    // this.employeeService.reloadEmployee()
   }
 
  
