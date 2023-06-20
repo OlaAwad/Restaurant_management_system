@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Category } from '@app/data-types';
+import { Category, Product } from '@app/data-types';
+import { map, Observable } from 'rxjs';
 import { environment } from '../../environments/environment'
 @Injectable({
   providedIn: 'root'
@@ -26,12 +27,19 @@ constructor(private http: HttpClient) { }
     return this.http.put<Category>(`${this.apiUrl}/Categories/${category.id}`, category)
   }
 
+
   deleteCategory(categoryId: number){
     return this.http.delete<Category>(`${this.apiUrl}/Categories/${categoryId}`)
   }
 
+
   searchCategories(query: string){
     return this.http.get<Category[]>(`${this.apiUrl}/Categories?q=${query}`)
+  }
+
+  getCatNameById(categoryId: number): Observable<string>{
+    let url = `${this.apiUrl}/Categories/${categoryId}`
+    return this.http.get<Category>(url).pipe(map((category: Category) => category.CategoryName))
   }
 
 

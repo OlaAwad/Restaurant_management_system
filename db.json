@@ -120,14 +120,6 @@
       "ProductAvailableQuantity": 23,
       "ProductCategory": "Sandwich",
       "id": 5
-    },
-    {
-      "ProductName": "test",
-      "ProductImage": "test",
-      "ProductPrice": 12,
-      "ProductAvailableQuantity": 12,
-      "ProductCategory": "test",
-      "id": 6
     }
   ]
 }

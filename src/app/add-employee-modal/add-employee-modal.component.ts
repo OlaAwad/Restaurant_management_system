@@ -10,7 +10,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AddEmployeeModalComponent implements OnInit {
 
-  isAdmin: boolean = false
+  // isAdmin: boolean = false
   employeeTypes: string[] = ['Admin', 'Chef', 'Casheir']
   selectedType: string = ''
   onEmployeeAdded?: (newEmployee: SignUp) => void
@@ -19,13 +19,13 @@ export class AddEmployeeModalComponent implements OnInit {
   constructor(private employeeService: EmployeeService, public modal: NgbActiveModal) { }
 
   ngOnInit(): void {
-    this.employeeService.employeeType$.subscribe((type) => {
-      if(type == 'Admin'){
-        this.isAdmin = true
-      } else{
-        this.isAdmin = false
-      }
-    })
+    // this.employeeService.employeeType$.subscribe((type) => {
+    //   if(type == 'Admin'){
+    //     this.isAdmin = true
+    //   } else{
+    //     this.isAdmin = false
+    //   }
+    // })
   }
 
   onEmpTypeSelected(type: string){
