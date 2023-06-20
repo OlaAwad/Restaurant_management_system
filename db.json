@@ -4,7 +4,66 @@
       "Name": "Ola Awad",
       "Password": "123456",
       "Email": "ola@gmail.com",
-      "EmployeeId": 1
+      "EmployeeType": "Admin",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "Name": "chef1",
+      "Email": "chef1@gmail.com",
+      "Password": "123456",
+      "EmployeeType": "Chef"
+    },
+    {
+      "Name": "chef2",
+      "Password": "123456",
+      "Email": "chef2@gmail.com",
+      "EmployeeType": "Chef",
+      "id": 3
+    },
+    {
+      "Name": "chef3",
+      "Password": "123456",
+      "Email": "chef3@gmail.com",
+      "EmployeeType": "Chef",
+      "id": 4
+    },
+    {
+      "Name": "Casheir1",
+      "Password": "123456",
+      "Email": "casheir1@gmail.com",
+      "EmployeeType": "Casheir",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "Name": "Casheir2",
+      "Email": "casheir21@gmail.com",
+      "Password": "123456",
+      "EmployeeType": "Casheir"
+    },
+    {
+      "Name": "Casheir3",
+      "Password": "123456",
+      "Email": "casheir3@gmail.com",
+      "EmployeeType": "Casheir",
+      "id": 7
+    },
+    {
+      "Name": "chef5",
+      "Password": "123456",
+      "Email": "chef5@gmail.com",
+      "EmployeeType": "Chef",
+      "RegistrationDate": "6/20/2023",
+      "id": 9
+    },
+    {
+      "Name": "Ahmed Ali",
+      "Password": "123456",
+      "Email": "ahmed@gmail.com",
+      "EmployeeType": "Chef",
+      "RegistrationDate": "6/20/2023",
+      "id": 10
     }
   ],
   "Categories": [
@@ -53,6 +112,22 @@
       "ProductAvailableQuantity": 15,
       "ProductCategory": "Sandwich",
       "id": 4
+    },
+    {
+      "ProductName": "Beef Sandwich",
+      "ProductImage": "https://images.unsplash.com/photo-1604467707321-70d5ac45adda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80",
+      "ProductPrice": 150,
+      "ProductAvailableQuantity": 23,
+      "ProductCategory": "Sandwich",
+      "id": 5
+    },
+    {
+      "ProductName": "test",
+      "ProductImage": "test",
+      "ProductPrice": 12,
+      "ProductAvailableQuantity": 12,
+      "ProductCategory": "test",
+      "id": 6
     }
   ]
 }

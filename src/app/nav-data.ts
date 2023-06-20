@@ -24,9 +24,21 @@ export const navbarData = [
         employeeType: 'Admin'
     },
     {
+        routerLink: 'employees',
+        icon: 'fa-solid fa-users',
+        label: 'Employees',
+        employeeType: 'Admin'
+    },
+    {
         routerLink:'settings',
         icon:'fa-solid fa-gear',
         label: 'Settings',
         employeeType: 'Admin'
     },
+    {
+        routerLink: 'authentication',
+        icon:'fa-solid fa-arrow-right-from-bracket',
+        label: 'Logout',
+        employeeType: 'Admin, Cashier, Chef'
+    }
 ]

@@ -68,6 +68,8 @@ export class SidenavComponent implements OnInit {
         return data.employeeType.includes(type!)
       })
     })
+
+
   }
 
   toggleCollapse() {
@@ -84,6 +86,13 @@ export class SidenavComponent implements OnInit {
       Collapsed: this.Collapsed,
       ScreenWidth: this.ScreenWidth,
     })
+  }
+
+  onNavItemClick(data: any){
+    if(data.label === 'Logout'){
+      // console.log('logout clicked')
+      this.employeeService.employeeLogout()
+    }
   }
 
 }

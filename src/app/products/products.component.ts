@@ -61,11 +61,6 @@ export class ProductsComponent implements OnInit {
     if(query){
       let element = query.target as HTMLInputElement
       this.productsService.searchProducts(element.value).subscribe((result) => {
-        // if(result.length > 5){
-        //   result.length = 5
-        // }
-        // this.searchResult = result
-        // this.products = this.searchResult
         this.products = result
       })
     }

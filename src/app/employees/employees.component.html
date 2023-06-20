@@ -1,0 +1,48 @@
+<h2 class="text-center">Employees</h2>
+
+<div class="d-flex flex-column align-items-center">
+    <form class="form-inline mb-2 d-flex searchForm">
+      <input
+        #searchInput
+        class="form-control mr-sm-2"
+        type="text"
+        placeholder="Search Products"
+        aria-label="Search"
+        (keyup)="searchEmployee($event)"
+      />
+    </form>
+    <div class="add btn mb-3" (click)="OpenAddEmployeeModal()">
+      <i class="fa-solid fa-plus"></i>
+    </div>
+    
+  </div>
+
+<table class="table">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Employee Type</th>
+        <th scope="col">Registration Date</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="text-center" *ngFor="let employee of employees">
+        <th scope="row">{{ employee.id }}</th>
+        <td>{{ employee.Name }}</td>
+        <td>{{ employee.Email }}</td>
+        <td>{{ employee.EmployeeType }}</td>
+        <td>{{ employee.RegistrationDate }}</td>
+        <td>
+          <i
+            class="fa-solid fa-pen-to-square pr-2"
+            (click)="openUpdateEmployeeModal(employee.id)"
+          ></i>
+          <i class="fa-solid fa-trash" (click)="deleteEmployee(employee.id)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

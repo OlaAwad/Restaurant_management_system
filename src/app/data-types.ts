@@ -1,7 +1,10 @@
 export interface SignUp{
     Name: string,
     Password: string,
-    Email: string
+    Email: string,
+    EmployeeType: string,
+    RegistrationDate: string,
+    id: number
 }
 
 export interface Login{

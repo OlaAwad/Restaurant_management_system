@@ -41,7 +41,7 @@
                   />
                   <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                      Category
+                      {{selectedCategory || 'Category'}}
                     </button>
                     <div class="dropdown-menu">
                       <a class="dropdown-item" *ngFor="let category of categories" (click)="onCategorySelected(category)">{{category.CategoryName}}</a>

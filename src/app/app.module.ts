@@ -27,6 +27,9 @@ import { UpdateCategoryModalComponent } from './update-category-modal/update-cat
 import { AddProductModalComponent } from './add-product-modal/add-product-modal.component';
 import { UpdateProductModalComponent } from './update-product-modal/update-product-modal.component';
 import { EntryPointComponent } from './entry-point/entry-point.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { UpdateEmployeeModalComponent } from './update-employee-modal/update-employee-modal.component';
+import { AddEmployeeModalComponent } from './add-employee-modal/add-employee-modal.component';
 
 
 @NgModule({
@@ -46,7 +49,10 @@ import { EntryPointComponent } from './entry-point/entry-point.component';
     UpdateCategoryModalComponent,
     AddProductModalComponent,
     UpdateProductModalComponent,
-    EntryPointComponent
+    EntryPointComponent,
+    EmployeesComponent,
+    UpdateEmployeeModalComponent,
+    AddEmployeeModalComponent
   ],
   imports: [
     BrowserModule,

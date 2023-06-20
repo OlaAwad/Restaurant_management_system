@@ -1,0 +1,79 @@
+<div class="modal-container">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header text-center w-100">
+        <h4 class="modal-title">Update Employee</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <form
+            #updateEmployee="ngForm"
+            class="d-flex flex-column align-items-center"
+            (ngSubmit)="submit(updateEmployee.value)"
+          >
+            <input
+              type="text"
+              class="form-control mb-2 w-75"
+              placeholder="Enter Employee Name"
+              name="Name"
+              ngModel="{{ employeeData?.Name }}"
+            />
+            <!-- <input
+                    type="text"
+                    class="form-control mb-2 w-75"
+                    placeholder="Enter Product Image URL"
+                    name="ProductImage"
+                    ngModel="{{employeeData?.ProductImage}}"
+                  /> -->
+            <input
+              type="password"
+              class="form-control mb-2 w-75"
+              placeholder="Enter Employee Password"
+              name="Password"
+              ngModel="{{ employeeData?.Password }}"
+            />
+            <input
+              type="email"
+              class="form-control mb-2 w-75"
+              placeholder="Enter Employee Email"
+              name="Email"
+              ngModel="{{ employeeData?.Email }}"
+            />
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-toggle="dropdown"
+                aria-expanded="false"
+              >
+              {{selectedEmpType || 'Employee Type'}}
+              </button>
+              <div class="dropdown-menu">
+                <a
+                  class="dropdown-item"
+                  *ngFor="let type of employeeTypes"
+                  (click)="onEmpTypeSelected(type)"
+                >
+                  {{ type }}
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="submit(updateEmployee.value)"
+          [disabled]="updateEmployee.invalid"
+        >
+          Update
+        </button>
+        <button type="button" class="btn btn-dark" (click)="cancel()">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

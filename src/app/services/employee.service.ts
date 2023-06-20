@@ -3,10 +3,13 @@ import { BehaviorSubject } from 'rxjs';
 import {HttpClient} from '@angular/common/http'
 import { Router } from '@angular/router';
 import {SignUp, Login} from '../data-types'
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
+
+  apiUrl = environment.apiUrl
   isEmployeeLoggedIn = new BehaviorSubject<boolean>(false)
   isLoginError = new EventEmitter<boolean>(false)
   private employeeTypeSubject = new BehaviorSubject<string|null>(null)
@@ -25,12 +28,7 @@ export class EmployeeService {
    }
 
   employeeSignUp(data: SignUp){
-    let result = this.http.post('http://localhost:3000/employees', data, {observe:'response'}).subscribe((result) => {
-      this.isEmployeeLoggedIn.next(true)
-      localStorage.setItem('employee', JSON.stringify(result.body))
-      // this.router.navigate(['home'])
-      console.log('result: ', result)
-    })
+    return this.http.post<SignUp>(`${this.apiUrl}/Employees`, data)
   }
 
   reloadEmployee(){
@@ -41,7 +39,7 @@ export class EmployeeService {
   }
 
   employeeLogin(data: Login){
-    this.http.get(`http://localhost:3000/employees?Email=${data.Email}&Password=${data.Password}`, {observe:'response'}).subscribe((result: any) => {
+    this.http.get(`${this.apiUrl}/employees?Email=${data.Email}&Password=${data.Password}`, {observe:'response'}).subscribe((result: any) => {
       if(result && result.body && result.body.length){
         localStorage.setItem('employee', JSON.stringify(result.body))
         this.router.navigate(['categories']);
@@ -54,9 +52,29 @@ export class EmployeeService {
   }
 
 
-  // employeeLogout(){
-  //   localStorage.removeItem('employee')
-  //   this.router.navigate(['/employee-auth']);
-  //   (window as any).ngRef.instance.onLogout()
-  // }
+  employeeLogout(){
+    localStorage.removeItem('employee')
+    // this.router.navigate(['/employee-auth']);
+    // (window as any).ngRef.instance.onLogout()
+  }
+
+  getEmployees(){
+    return this.http.get<SignUp[]>(`${this.apiUrl}/Employees`)
+  }
+
+  getEmployee(employeeId: number){
+    return this.http.get<SignUp>(`${this.apiUrl}/Employees/${employeeId}`)
+  }
+
+  updateEmployee(employee: SignUp){
+    return this.http.put<SignUp>(`${this.apiUrl}/Employees/${employee.id}`, employee)
+  }
+
+  deleteEmployee(employeeId: number){
+    return this.http.delete<SignUp>(`${this.apiUrl}/Employees/${employeeId}`)
+  }
+
+  searchEmployee(query: string){
+    return this.http.get<SignUp[]>(`${this.apiUrl}/Employees?q=${query}`)
+  }
 }

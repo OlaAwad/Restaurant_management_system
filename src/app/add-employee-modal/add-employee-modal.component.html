@@ -1,0 +1,73 @@
+<div class="modal-container">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-center w-100">
+          <h4 class="modal-title">Add New Employee</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <form
+      #registerEmployee="ngForm"
+      (ngSubmit)="submit(registerEmployee.value)"
+      class="d-flex flex-column align-items-center"
+    >
+      <input
+        class="form-control mb-2 w-100"
+        type="text"
+        placeholder="Enter Employee Name"
+        name="Name"
+        ngModel
+      />
+      <input
+        class="form-control mb-2 w-100"
+        type="password"
+        placeholder="Enter Employee Password"
+        name="Password"
+        ngModel
+      />
+      <input
+        class="form-control mb-2 w-100"
+        type="text"
+        placeholder="Enter Employee Email"
+        name="Email"
+        ngModel
+      />
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          data-toggle="dropdown"
+          aria-expanded="false"
+        >
+        {{selectedType || 'Employee Type'}}
+        </button>
+        <div class="dropdown-menu">
+          <a
+            class="dropdown-item"
+            *ngFor="let type of employeeTypes"
+            (click)="onEmpTypeSelected(type)"
+          >
+            {{ type }}
+          </a>
+        </div>
+      </div>
+    </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="submit(registerEmployee.value)"
+            [disabled]="registerEmployee.invalid"
+          >
+            Add
+          </button>
+          <button type="button" class="btn btn-dark" (click)="cancel()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
