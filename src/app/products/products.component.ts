@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { ProductsService } from '@app/services/products.service';
 import { AddProductModalComponent } from '@app/add-product-modal/add-product-modal.component';
 import { UpdateProductModalComponent } from '@app/update-product-modal/update-product-modal.component';
+import { EmployeeService } from '@app/services/employee.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -13,11 +14,15 @@ export class ProductsComponent implements OnInit {
 
   products: Product[] = []
   searchResult: undefined | Product[]
+  employeeType: string = ''
 
-  constructor(private modalService: NgbModal, private productsService: ProductsService) { }
+  constructor(private modalService: NgbModal, private productsService: ProductsService, private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
     this.getProducts()
+    this.employeeService.employeeType$.subscribe((type) => {
+      this.employeeType = type!
+    })
   }
 
   getProducts(){

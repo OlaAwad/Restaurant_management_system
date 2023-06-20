@@ -9,8 +9,14 @@ export const navbarData = [
         routerLink:'products',
         icon:'fa-solid fa-utensils',
         label: 'Products',
-        employeeType: 'Admin'
+        employeeType: 'Admin, Cashier'
     },
+    // {
+    //     routerLink:'cashierProducts',
+    //     icon:'fa-solid fa-utensils',
+    //     label: 'Products',
+    //     employeeType: 'Cashier'
+    // },
     {
         routerLink:'orders',
         icon:'fa-solid fa-clipboard',
@@ -40,5 +46,6 @@ export const navbarData = [
         icon:'fa-solid fa-arrow-right-from-bracket',
         label: 'Logout',
         employeeType: 'Admin, Cashier, Chef'
-    }
+    },
+  
 ]

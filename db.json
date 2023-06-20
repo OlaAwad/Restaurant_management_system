@@ -29,24 +29,24 @@
       "id": 4
     },
     {
-      "Name": "Casheir1",
+      "Name": "Cashier1",
       "Password": "123456",
-      "Email": "casheir1@gmail.com",
-      "EmployeeType": "Casheir",
+      "Email": "cashier1@gmail.com",
+      "EmployeeType": "Cashier",
       "id": 5
     },
     {
       "id": 6,
-      "Name": "Casheir2",
-      "Email": "casheir21@gmail.com",
+      "Name": "Cashier2",
+      "Email": "cashier21@gmail.com",
       "Password": "123456",
-      "EmployeeType": "Casheir"
+      "EmployeeType": "Cashier"
     },
     {
-      "Name": "Casheir3",
+      "Name": "Cashier3",
       "Password": "123456",
-      "Email": "casheir3@gmail.com",
-      "EmployeeType": "Casheir",
+      "Email": "cashier3@gmail.com",
+      "EmployeeType": "Cashier",
       "id": 7
     },
     {

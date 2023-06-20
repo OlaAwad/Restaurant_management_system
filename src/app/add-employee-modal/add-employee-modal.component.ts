@@ -11,7 +11,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class AddEmployeeModalComponent implements OnInit {
 
   // isAdmin: boolean = false
-  employeeTypes: string[] = ['Admin', 'Chef', 'Casheir']
+  employeeTypes: string[] = ['Admin', 'Chef', 'Cashier']
   selectedType: string = ''
   onEmployeeAdded?: (newEmployee: SignUp) => void
 

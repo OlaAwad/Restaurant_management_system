@@ -13,7 +13,7 @@ export class UpdateEmployeeModalComponent implements OnInit {
   @Input() employeeId: number = 0
   employeeData: SignUp | undefined
   onEmployeeUpdated?: (updatedEmp: SignUp) => void
-  employeeTypes: string[] = ['Admin', 'Chef', 'Casheir']
+  employeeTypes: string[] = ['Admin', 'Chef', 'Cashier']
   selectedEmpType: string | undefined
 
   constructor(public modal: NgbActiveModal, private employeesService: EmployeeService) { }
