@@ -43,6 +43,8 @@ export class SidenavComponent implements OnInit {
   Collapsed = true
   ScreenWidth = 0
   navData = navbarData
+  employeeType: string = ''
+  filteredNavData: any[] =[]
   constructor(private employeeService: EmployeeService) {}
 
   @HostListener('window: resize', ['$event'])
@@ -59,7 +61,13 @@ export class SidenavComponent implements OnInit {
 
   ngOnInit(): void {
     this.ScreenWidth = window.innerWidth
-    this.getEmployeeType()
+    this.employeeService.employeeType$.subscribe((type) =>{
+      console.log('type: ', type)
+      this.employeeType = type!
+      this.filteredNavData = this.navData.filter((data) => {
+        return data.employeeType.includes(type!)
+      })
+    })
   }
 
   toggleCollapse() {
@@ -78,8 +86,4 @@ export class SidenavComponent implements OnInit {
     })
   }
 
-  getEmployeeType(){
-    let type = this.employeeService.getEmployeeType()
-    console.log('type: ', type)
-  }
 }

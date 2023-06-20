@@ -9,8 +9,21 @@ import {SignUp, Login} from '../data-types'
 export class EmployeeService {
   isEmployeeLoggedIn = new BehaviorSubject<boolean>(false)
   isLoginError = new EventEmitter<boolean>(false)
+  private employeeTypeSubject = new BehaviorSubject<string|null>(null)
+  employeeType$ = this.employeeTypeSubject.asObservable()
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {
+    let employeeType = localStorage.getItem('EmployeeType')
+    if(employeeType){
+      this.employeeTypeSubject.next(employeeType)
+    }
+   }
+
+   setEmployeeType(employeeType: string){
+    localStorage.setItem('EmployeeType', employeeType)
+    this.employeeTypeSubject.next(employeeType)
+   }
+
   employeeSignUp(data: SignUp){
     let result = this.http.post('http://localhost:3000/employees', data, {observe:'response'}).subscribe((result) => {
       this.isEmployeeLoggedIn.next(true)
@@ -40,11 +53,6 @@ export class EmployeeService {
     })
   }
 
-  getEmployeeType(){
-    // let empType = localStorage.getItem('EmployeeType')
-    // return JSON.parse(empType!)
-    return localStorage.getItem('EmployeeType')
-  }
 
   // employeeLogout(){
   //   localStorage.removeItem('employee')

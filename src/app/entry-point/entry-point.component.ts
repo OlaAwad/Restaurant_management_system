@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
+import { EmployeeService } from '@app/services/employee.service'
 
 @Component({
   selector: 'app-entry-point',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router'
 })
 export class EntryPointComponent implements OnInit {
   // employeeType: string = ''
-  constructor(private router: Router) {}
+  constructor(private router: Router, private employeeService: EmployeeService) {}
 
   ngOnInit(): void {
     let buttons = document.querySelectorAll('.btn-group-vertical button')
@@ -17,7 +18,8 @@ export class EntryPointComponent implements OnInit {
       button.addEventListener('click', () => {
         const innerHTML = button.innerHTML
         // console.log(innerHTML);
-        localStorage.setItem('EmployeeType', innerHTML)
+        // localStorage.setItem('EmployeeType', innerHTML)
+        this.employeeService.setEmployeeType(innerHTML)
         this.router.navigate(['/employee-auth'])
         // this.getEmployeeType()
       })
