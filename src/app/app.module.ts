@@ -30,7 +30,10 @@ import { EntryPointComponent } from './entry-point/entry-point.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { UpdateEmployeeModalComponent } from './update-employee-modal/update-employee-modal.component';
 import { AddEmployeeModalComponent } from './add-employee-modal/add-employee-modal.component';
-
+import { MatTabsModule } from '@angular/material/tabs';
+import { FilterByCategoryPipe } from './pipes/filter-by-category.pipe';
+import { CartComponent } from './cart/cart.component';
+import { CashierProductsComponent } from './cashier-products/cashier-products.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,10 @@ import { AddEmployeeModalComponent } from './add-employee-modal/add-employee-mod
     EntryPointComponent,
     EmployeesComponent,
     UpdateEmployeeModalComponent,
-    AddEmployeeModalComponent
+    AddEmployeeModalComponent,
+    FilterByCategoryPipe,
+    CartComponent,
+    CashierProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -65,9 +71,10 @@ import { AddEmployeeModalComponent } from './add-employee-modal/add-employee-mod
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
-    NgbModule
+    NgbModule,
+    MatTabsModule
     ],
-  providers: [NgbActiveModal],
+  providers: [NgbActiveModal  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

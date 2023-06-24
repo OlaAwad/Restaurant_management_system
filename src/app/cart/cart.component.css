@@ -1,0 +1,44 @@
+.cart{
+    padding: 1em;
+    background-color: var(--mainColor);
+    height: 100%;
+    color: var(--white);
+    overflow-y: scroll;
+}
+.cart-title{
+    color: var(--white);
+}
+.orderPlace .btn{
+    border: 1px solid var(--white);
+    color: white;
+}
+.btn.active{
+    background-color: var(--gray);
+}
+.cart-close{
+    border: 1px solid var(--white);
+}
+hr{
+    background-color: var(--white);
+}
+.prdImage{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.prdPrice{
+    color: var(--gray);
+    font-weight: 500;
+}
+.prdQuantity{
+    float: right;
+    clear: both;
+    width: 40%;
+}
+.prdName{
+    font-weight: 500;
+}
+input{
+    background-color: var(--gray);
+    color: var(--white);
+}

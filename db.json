@@ -120,6 +120,70 @@
       "ProductAvailableQuantity": 23,
       "ProductCategory": "Sandwich",
       "id": 5
+    },
+    {
+      "ProductName": "Chicken Meal",
+      "ProductImage": "https://images.unsplash.com/photo-1564436872-f6d81182df12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "ProductPrice": 200,
+      "ProductAvailableQuantity": 12,
+      "ProductCategory": "Meals",
+      "id": 6
+    },
+    {
+      "ProductName": "Garlic Soup",
+      "ProductImage": "https://images.unsplash.com/photo-1611745451987-bd5df5565d9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=821&q=80",
+      "ProductPrice": 50,
+      "ProductAvailableQuantity": 30,
+      "ProductCategory": "Soups",
+      "id": 7
+    },
+    {
+      "ProductName": "Lentil soup",
+      "ProductImage": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "ProductPrice": 50,
+      "ProductAvailableQuantity": 25,
+      "ProductCategory": "Soups",
+      "id": 8
+    },
+    {
+      "ProductName": "Mix Cheese Sandwich",
+      "ProductImage": "https://images.unsplash.com/photo-1528736235302-52922df5c122?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=954&q=80",
+      "ProductPrice": 40,
+      "ProductAvailableQuantity": 30,
+      "ProductCategory": "Sandwich",
+      "id": 9
+    },
+    {
+      "ProductName": "Chicken Strips Sandwich",
+      "ProductImage": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "ProductPrice": 65,
+      "ProductAvailableQuantity": 23,
+      "ProductCategory": "Sandwich",
+      "id": 10
+    },
+    {
+      "ProductName": "Chicken BBQ Pizza",
+      "ProductImage": "https://images.unsplash.com/photo-1655471264223-b07ce84d521c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=511&q=80",
+      "ProductPrice": 125,
+      "ProductAvailableQuantity": 25,
+      "ProductCategory": "Pizza",
+      "id": 11
+    },
+    {
+      "ProductName": "Mix Cheese Pizza",
+      "ProductImage": "https://images.unsplash.com/photo-1536194309363-677b2608a921?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "ProductPrice": 95,
+      "ProductAvailableQuantity": 23,
+      "ProductCategory": "Pizza",
+      "id": 12
+    },
+    {
+      "ProductName": "Beef Burger Sandwich",
+      "ProductImage": "https://images.unsplash.com/photo-1555658094-ca794654362c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "ProductPrice": 120,
+      "ProductAvailableQuantity": 25,
+      "ProductCategory": "Sandwich",
+      "id": 13
     }
   ]
 }

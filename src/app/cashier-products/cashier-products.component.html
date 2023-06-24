@@ -1,0 +1,39 @@
+<mat-tab-group class="w-100">
+    <mat-tab *ngFor="let cat of categories" label="{{ cat.CategoryName }}">
+      <div class="menu-container menu">
+        <div class="row mt-5">
+          <div
+            class="col-lg-3 col-md-4"
+            *ngFor="let product of products | filterByCategory: cat"
+          >
+            <div class="card mb-4 text-center">
+              <figure>
+                <img src="{{ product.ProductImage }}" alt="Product-Image" />
+              </figure>
+              <section class="details">
+                <div class="min-details">
+                  <h3 class="prdName">{{ product.ProductName }}</h3>
+                  <h3 class="price">{{ product.ProductPrice }} EGP</h3>
+                </div>
+                <p class="availableQuantity">
+                  {{ product.ProductAvailableQuantity }}
+                  <span>{{ product.ProductCategory }} Available</span>
+                </p>
+                <a class="btn action-btn" (click)="addToCart(product)">Add to Cart</a>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+ 
+
+  <div class="cart-toggle" (click)="isCartVisible = !isCartVisible">
+    <span class="cart-icon"></span>
+    <span class="cart-count"> {{cartItems.length}} </span>
+  </div>
+
+  <div class="cart-wrapper" *ngIf="isCartVisible" [@slideInFromLeft]="isCartVisible ? 'visible' : 'hidden'" [ngClass]="{'show-cart' : isCartVisible}">
+    <app-cart [items]="cartItems" (close)="closeCart()"></app-cart>
+  </div>

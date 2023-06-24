@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CashierProductsComponent } from './cashier-products/cashier-products.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { EmployeeAuthComponent } from './employee-auth/employee-auth.component';
 import { EmployeesComponent } from './employees/employees.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'settings', component: SettingsComponent},
   {path: 'employees', component: EmployeesComponent},
   {path: 'employee-auth', component: EmployeeAuthComponent},
+  {path: 'cashierProducts', component: CashierProductsComponent}
   // {path: 'home', component: HomeComponent},
   
 ];

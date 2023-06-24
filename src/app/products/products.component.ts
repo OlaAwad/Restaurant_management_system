@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from '@app/data-types';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Category, Product } from '@app/data-types';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { ProductsService } from '@app/services/products.service';
 import { AddProductModalComponent } from '@app/add-product-modal/add-product-modal.component';
 import { UpdateProductModalComponent } from '@app/update-product-modal/update-product-modal.component';
 import { EmployeeService } from '@app/services/employee.service';
+import { CategoriesService } from '@app/services/categories.service';
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit{
 
   products: Product[] = []
   searchResult: undefined | Product[]
@@ -30,6 +32,8 @@ export class ProductsComponent implements OnInit {
       this.products = result
     })
   }
+
+ 
 
   OpenAddProductModal(){
     let modalRef = this.modalService.open(AddProductModalComponent)
@@ -70,5 +74,7 @@ export class ProductsComponent implements OnInit {
       })
     }
   }
+
+  
 
 }

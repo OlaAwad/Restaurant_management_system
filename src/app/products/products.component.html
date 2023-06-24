@@ -51,21 +51,4 @@
   </tbody>
 </table>
 
-<div class="cashier" *ngIf="employeeType == 'Cashier'">
-  <div class="row mt-5">
-    <div class="col-md-3" *ngFor="let product of products">
-      <div class="card mb-4 text-center">
-        <img src="{{ product.ProductImage }}" alt="" />
-        <div class="description">
-          <p>{{ product.ProductName }}</p>
-          <p>{{ product.ProductPrice }} EGP</p>
-          <p>
-            {{ product.ProductAvailableQuantity }}
-            <span> {{product.ProductCategory}} Available</span>
-          </p>
-        </div>
-       
-      </div>
-    </div>
-  </div>
-</div>
+

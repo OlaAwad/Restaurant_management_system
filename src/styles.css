@@ -1,10 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 :root{
     /* --mainColor: #274690; */
-    --mainColor: #19326b;
+    /* --mainColor: #19326b; */
     --gb: #f2eee8;
     --danger: #e01432;
     --white: #fff;
+    --gray: gray;
+    --mainColor: #0a153d
 }
 .action-btn{
     background-color: var(--mainColor);
@@ -23,4 +25,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
     border-color: var(--mainColor);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px var(--mainColor);
     transition: 0.4s;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 }

@@ -1,0 +1,61 @@
+<div class="cart">
+  <div class="cart-header">
+    <h2 class="cart-title">
+      Order
+      <span>#1213</span>
+    </h2>
+    <div class="orderPlace mb-4">
+      <button
+        class="btn btn-sm mr-2"
+        [class.active]="orderType === 'Dine in'"
+        (click)="orderType = 'Dine in'"
+      >
+        Dine In
+      </button>
+      <button
+        class="btn btn-sm mr-2"
+        [class.active]="orderType === 'To Go'"
+        (click)="orderType = 'To Go'"
+      >
+        To Go
+      </button>
+      <button
+        class="btn btn-sm mr-2"
+        [class.active]="orderType === 'Delivery'"
+        (click)="orderType = 'Delivery'"
+      >
+        Delivery
+      </button>
+    </div>
+    <!-- <button class="cart-close action-btn mb-2 btn btn-sm" (click)="close.emit()">Close</button> -->
+  </div>
+  <div class="d-flex justify-content-between">
+    <p>Item</p>
+    <p>Quantity</p>
+  </div>
+  <hr class="mt-0">
+  <div class="cart-items">
+    <div class="cart-item mb-3" *ngFor="let item of items">
+        <div class="d-flex flex-row justify-content-between">
+            <div class="item d-flex w-100">
+                <div class="cart-item-image">
+                    <img src="{{item.ProductImage}}" alt="Product Image" class="prdImage">
+                </div>
+                <div class="cart-item-details ml-2">
+                    <p class="w-100 prdName">{{item.ProductName}}</p>
+                    <p class="prdPrice">{{item.ProductPrice}} EGP</p>
+                </div>
+            </div>
+            <div class="quantity"> 
+                <input type="number" class="form-control prdQuantity">    
+                {{item.ProductQuantity}} 
+            </div>
+        </div>
+        <div class="notes">
+            <input type="text" class="form-control mb-2"  placeholder="Order Note">
+        </div>
+       
+    </div>
+  </div>
+  <p class="cart-total">Total: {{ getTotal() }} EGP</p>
+</div>
