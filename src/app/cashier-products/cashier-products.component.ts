@@ -4,6 +4,8 @@ import { ProductsService } from '@app/services/products.service';
 import { CategoriesService } from '@app/services/categories.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CartComponent } from '@app/cart/cart.component';
+import { CartService } from '@app/services/cart.service';
+import { map, take } from 'rxjs';
 
 @Component({
   selector: 'app-cashier-products',
@@ -32,8 +34,10 @@ export class CashierProductsComponent implements OnInit {
   categories: Category[] = []
   cartItems: Product[] = []
   isCartVisible: boolean = false
+  cartTotal: number = 0
+  
 
-  constructor(private productsService: ProductsService, private categoriesService: CategoriesService) { }
+  constructor(private productsService: ProductsService, private categoriesService: CategoriesService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.getProducts()
@@ -62,13 +66,22 @@ export class CashierProductsComponent implements OnInit {
   }
 
   addToCart(product: Product){
-    this.cartItems.push(product)
     this.isCartVisible = true
-    console.log(this.isCartVisible)
+      this.cartService.addItemToCart(product)    
+      this.cartService.getCartItems()    
+      this.calculateTotal()
+    
+
   }
 
+  calculateTotal(){
+    this.cartTotal = this.cartItems.reduce((total, item) => {
+      return total + (item.ProductPrice * item.ProductQuantity! || 0)
+    }, 0)
+  }
  
   closeCart(){
     this.isCartVisible = false
   }
 }
+

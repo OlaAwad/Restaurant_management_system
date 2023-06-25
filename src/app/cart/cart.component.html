@@ -27,6 +27,9 @@
         Delivery
       </button>
     </div>
+    <div class="clear mb-2" (click)="clearCart()" *ngIf="cartItems.length!=0">
+      Clear Cart
+    </div>
     <!-- <button class="cart-close action-btn mb-2 btn btn-sm" (click)="close.emit()">Close</button> -->
   </div>
   <div class="d-flex justify-content-between">
@@ -35,7 +38,7 @@
   </div>
   <hr class="mt-0">
   <div class="cart-items">
-    <div class="cart-item mb-3" *ngFor="let item of items">
+    <div class="cart-item mb-3" *ngFor="let item of cartItems; let i = index">
         <div class="d-flex flex-row justify-content-between">
             <div class="item d-flex w-100">
                 <div class="cart-item-image">
@@ -47,15 +50,18 @@
                 </div>
             </div>
             <div class="quantity"> 
-                <input type="number" class="form-control prdQuantity">    
-                {{item.ProductQuantity}} 
+                <input type="number" class="form-control prdQuantity" [(ngModel)]="item.ProductQuantity" (change)="updateCartItem(item)" (input)="onQuantityChange(item)">    
             </div>
         </div>
-        <div class="notes">
-            <input type="text" class="form-control mb-2"  placeholder="Order Note">
+        <div class="notes d-flex justify-content-between">
+            <input type="text" class="form-control mb-2"  placeholder="Order Note...">
+            <i class="fa-solid fa-trash float-right p-3 fa-lg" (click)="removeItem(item)"></i>
         </div>
        
     </div>
   </div>
-  <p class="cart-total">Total: {{ getTotal() }} EGP</p>
+  <p class="cart-total">Total: {{ cartTotal }} EGP</p>
+  <div class="d-flex justify-content-center">
+  <p class="button btn pay action-btn" *ngIf="cartItems.length != 0">Continue To Payment</p>  
+  </div>
 </div>

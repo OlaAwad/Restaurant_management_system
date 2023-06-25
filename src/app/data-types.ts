@@ -30,5 +30,23 @@ export interface Product{
     ProductQuantity?: number,
     ProductAvailableQuantity: number,
     ProductCategory: string
-    id: number
+    id: number,
+    // ProductCartId?: number
+}
+
+export interface CartItem{
+    ProductName: string,
+    ProductPrice: number,
+    ProductAvailableQuantity: number,
+    ProductImage: string,
+    // id: number,
+    // ProductCartId: number
+}
+
+export interface Order{
+    OrderType: string,
+    ProductName: string,
+    ProductQuantity: number,
+    ProductPrice: number,
+    TotalPrice: number
 }

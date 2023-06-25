@@ -15,7 +15,7 @@ export const navbarData = [
         routerLink:'cashierProducts',
         icon:'fa-solid fa-utensils',
         label: 'Products',
-        employeeType: 'Cashier'
+        employeeType: 'CashierProducts'
     },
     {
         routerLink:'orders',

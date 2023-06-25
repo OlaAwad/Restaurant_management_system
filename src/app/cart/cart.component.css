@@ -15,6 +15,12 @@
 .btn.active{
     background-color: var(--gray);
 }
+.clear{
+    color: var(--danger);
+    text-align: right;
+    font-weight: bold;
+    cursor: pointer;
+}
 .cart-close{
     border: 1px solid var(--white);
 }
@@ -41,4 +47,8 @@ hr{
 input{
     background-color: var(--gray);
     color: var(--white);
+}
+.fa-trash{
+    color: var(--danger);
+    cursor: pointer;
 }

@@ -35,5 +35,6 @@
   </div>
 
   <div class="cart-wrapper" *ngIf="isCartVisible" [@slideInFromLeft]="isCartVisible ? 'visible' : 'hidden'" [ngClass]="{'show-cart' : isCartVisible}">
-    <app-cart [items]="cartItems" (close)="closeCart()"></app-cart>
+    <!-- <app-cart [cartItems]="cartItems" (close)="closeCart()"></app-cart> -->
+    <app-cart (close)="closeCart()"></app-cart>
   </div>
