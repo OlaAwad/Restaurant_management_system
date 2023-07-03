@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartService.getCartItems()
+    this.cartService.getCartItems$()
     this.cartService.cartItems$.subscribe(cartItems =>{
       this.cartItems = cartItems
       this.calculateTotal()
@@ -61,6 +61,16 @@ export class CartComponent implements OnInit {
     if((item.ProductQuantity)! > item.ProductAvailableQuantity){
       item.ProductQuantity = item.ProductAvailableQuantity
     } 
+  }
+
+ 
+
+  sendPaymentFlag(flag: boolean){
+    this.cartService.sendPaymentFlag(flag)
+  }
+
+  continueToPayment(){
+    this.sendPaymentFlag(true)
   }
 
 }

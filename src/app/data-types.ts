@@ -31,6 +31,9 @@ export interface Product{
     ProductAvailableQuantity: number,
     ProductCategory: string
     id: number,
+    // canAdd?: boolean,
+    ProductNotes?: string,
+    ProductId?: number
     // ProductCartId?: number
 }
 
@@ -39,6 +42,8 @@ export interface CartItem{
     ProductPrice: number,
     ProductAvailableQuantity: number,
     ProductImage: string,
+    ProductNotes?: string,
+    ProductId?: number[]
     // id: number,
     // ProductCartId: number
 }
@@ -46,7 +51,20 @@ export interface CartItem{
 export interface Order{
     OrderType: string,
     ProductName: string,
-    ProductQuantity: number,
-    ProductPrice: number,
-    TotalPrice: number
+    ProductQuantity: string,
+    ProductPrice: string,
+    ProductNotes: string,
+    TotalPrice: number,
+    OrderDate: Date,
+    // CardHolderName?: string,
+    // CardNumber?: number,
+    // ExpirationDate?: Date,
+    // CVV?: number,
+    CustomerName?: String,
+    CustomerMobile?: number,
+    TableNo?: number,
+    Address?: string,
+    DeliveryFees?: number,
+    ServiceFees?: number,
+    ProductId: number[]
 }

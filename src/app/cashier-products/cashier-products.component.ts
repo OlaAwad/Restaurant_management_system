@@ -17,6 +17,7 @@ import { map, take } from 'rxjs';
       state('visible', style({transform: 'translateX(0%)'})),
       transition('hidden <=> visible', animate('500ms ease-in-out'))
     ])
+
     // trigger('slideInFromLeft', [
     //   transition(':enter', [
     //     style({transform: 'translateX(-100%)'}),
@@ -35,19 +36,24 @@ export class CashierProductsComponent implements OnInit {
   cartItems: Product[] = []
   isCartVisible: boolean = false
   cartTotal: number = 0
-  
+  canAdd: boolean = true
+  showPayment: boolean = false
 
   constructor(private productsService: ProductsService, private categoriesService: CategoriesService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.getProducts()
     this.getCategories()
+    this.receivePaymentFlag()
+    this.getCartFlag()
+    // this.getPrdAvailableQuantity()
   }
 
   getProducts(){
-    this.productsService.getProducts().subscribe((result) => {
-      this.products = result
+    this.productsService.getProducts().subscribe((products) => {
+      this.products = products
     })
+    
   }
 
   getCategories(){
@@ -65,14 +71,40 @@ export class CashierProductsComponent implements OnInit {
     }
   }
 
+ 
+
   addToCart(product: Product){
     this.isCartVisible = true
       this.cartService.addItemToCart(product)    
-      this.cartService.getCartItems()    
+      // this.cartService.getCartItems$()  
+      this.cartService.cartItems$.subscribe(cartItems =>{
+        this.cartItems = cartItems
+      })
+      // if((product.ProductQuantity)! >= product.ProductAvailableQuantity){
+      //   product.canAdd = false
+      // }  else{
+      //   product.canAdd = true
+      // }
+      
+      // this.cartService.cartItems$.subscribe(cartItems =>{
+      //   this.cartItems = cartItems
+      //   console.log('cartItems: ', this.cartItems)
+      //   for(let item of this.cartItems){
+      //     if((item.ProductQuantity)! <  item.ProductAvailableQuantity){
+      //       item.canAdd = true
+      //       console.log(item.canAdd)
+      //     } else{
+      //       item.canAdd = false
+      //       console.log(item.canAdd)
+      //     }
+      //   }
+      // })
       this.calculateTotal()
-    
 
   }
+  
+  
+  
 
   calculateTotal(){
     this.cartTotal = this.cartItems.reduce((total, item) => {
@@ -82,6 +114,26 @@ export class CashierProductsComponent implements OnInit {
  
   closeCart(){
     this.isCartVisible = false
+    
   }
+
+
+  receivePaymentFlag(){
+    this.cartService.payment$.subscribe(flag => {
+      // console.log(flag)
+      this.showPayment = flag
+    })
+  }
+
+  getCartFlag(){
+    this.cartService.isCartVisible$.subscribe((response)=>{
+      this.isCartVisible = response
+    })
+  }
+
+  // getPrdAvailableQuantity(){
+  //   this.productsService.ProductAvailableQuantity$.subscribe()
+  // }
+
 }
 

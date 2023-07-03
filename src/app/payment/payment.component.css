@@ -1,0 +1,88 @@
+.payment{
+    padding: 1em;
+    background-color: var(--mainColor);
+    height: 100%;
+    color: var(--white);
+    overflow-y: scroll;
+}
+hr{
+    background-color: var(--gray);
+}
+.paymentMethod .method{
+    /* border: 1px solid var(--white);
+    padding: 1em;
+    text-align: center;
+    width: 8em;
+    height: 6em;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--white); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+::ng-deep .mat-tab-header-pagination {
+    display: none !important;
+}
+/* mat-tab-label{
+    min-width: 25px !important;
+    padding: 5px;
+    background-color: transparent;
+    color: var(--white);
+    font-weight: 700;
+}
+mat-tab-label.mat-tab-label-active{
+    min-width: 25% !important;
+    padding: 5px;
+    background-color: transparent;
+    color: var(--white);
+    font-weight: 700;
+} */
+::ng-deep .mat-tab-label-container{
+    height: 6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+::ng-deep .mat-tab-label-content{
+        color: var(--white);
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 6em;
+        width: 8em;
+}
+.form-group{
+    width: 100%;
+}
+.cardData .expDate, .cardData .cvv{
+    width: 95%;
+}
+.line{
+    border: none;
+    border-top: 1px solid var(--gray);
+    margin: 1rem 0;
+    z-index: 10000;
+    width: 100%;
+}
+.dropdown-item{
+    cursor: pointer;
+}
+.orderType{
+    width: 95%;
+}
+.orderType p{
+    margin-bottom: 0.5em;
+}
+.tableNo{
+    width: 50%;
+}
+.payment-footer .cancel, .payment-footer .submit{
+    width: 45%;
+}

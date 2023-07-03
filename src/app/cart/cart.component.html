@@ -54,7 +54,7 @@
             </div>
         </div>
         <div class="notes d-flex justify-content-between">
-            <input type="text" class="form-control mb-2"  placeholder="Order Note...">
+            <input type="text" class="form-control mb-2"  placeholder="Order Note..." [(ngModel)]="item.ProductNotes" (change)="updateCartItem(item)" >
             <i class="fa-solid fa-trash float-right p-3 fa-lg" (click)="removeItem(item)"></i>
         </div>
        
@@ -62,6 +62,6 @@
   </div>
   <p class="cart-total">Total: {{ cartTotal }} EGP</p>
   <div class="d-flex justify-content-center">
-  <p class="button btn pay action-btn" *ngIf="cartItems.length != 0">Continue To Payment</p>  
+  <p class="button btn pay action-btn" *ngIf="cartItems.length != 0"  (click)="continueToPayment()">Continue To Payment</p>  
   </div>
 </div>

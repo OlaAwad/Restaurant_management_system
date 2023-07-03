@@ -7,6 +7,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { EntryPointComponent } from './entry-point/entry-point.component';
 import { HomeComponent } from './home/home.component';
 import { OrdersComponent } from './orders/orders.component';
+import { PaymentComponent } from './payment/payment.component';
 import { ProductsComponent } from './products/products.component';
 import { SalesComponent } from './sales/sales.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'settings', component: SettingsComponent},
   {path: 'employees', component: EmployeesComponent},
   {path: 'employee-auth', component: EmployeeAuthComponent},
-  {path: 'cashierProducts', component: CashierProductsComponent}
+  {path: 'cashierProducts', component: CashierProductsComponent},
+  {path: 'payment', component: PaymentComponent}
   // {path: 'home', component: HomeComponent},
   
 ];

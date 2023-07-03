@@ -34,6 +34,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { FilterByCategoryPipe } from './pipes/filter-by-category.pipe';
 import { CartComponent } from './cart/cart.component';
 import { CashierProductsComponent } from './cashier-products/cashier-products.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { CashierProductsComponent } from './cashier-products/cashier-products.co
     AddEmployeeModalComponent,
     FilterByCategoryPipe,
     CartComponent,
-    CashierProductsComponent
+    CashierProductsComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

@@ -133,7 +133,7 @@
       "ProductName": "Garlic Soup",
       "ProductImage": "https://images.unsplash.com/photo-1611745451987-bd5df5565d9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=821&q=80",
       "ProductPrice": 50,
-      "ProductAvailableQuantity": 30,
+      "ProductAvailableQuantity": 26,
       "ProductCategory": "Soups",
       "id": 7
     },
@@ -141,7 +141,7 @@
       "ProductName": "Lentil soup",
       "ProductImage": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
       "ProductPrice": 50,
-      "ProductAvailableQuantity": 25,
+      "ProductAvailableQuantity": 10,
       "ProductCategory": "Soups",
       "id": 8
     },
@@ -157,7 +157,7 @@
       "ProductName": "Chicken Strips Sandwich",
       "ProductImage": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
       "ProductPrice": 65,
-      "ProductAvailableQuantity": 23,
+      "ProductAvailableQuantity": 22,
       "ProductCategory": "Sandwich",
       "id": 10
     },
@@ -186,15 +186,91 @@
       "id": 13
     }
   ],
-  "Cart": [
+  "Cart": [],
+  "Orders": [
     {
-      "id": 3931204627,
-      "ProductName": "Chicken Ranch Pizza",
-      "ProductImage": "https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJhbmNoJTIwcGl6emF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-      "ProductPrice": "150",
-      "ProductAvailableQuantity": "7",
-      "ProductCategory": "Pizza",
-      "ProductQuantity": 12
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "50.00",
+      "OrderDate": "2023-07-03T11:52:20.812Z",
+      "id": 1
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "7",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "350.00",
+      "OrderDate": "2023-07-03T12:02:37.516Z",
+      "CustomerName": "lll5",
+      "CustomerMobile": 55555555,
+      "id": 2
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup, Garlic Soup",
+      "ProductQuantity": "1, 1",
+      "ProductNotes": ", ",
+      "ProductPrice": "50, 50",
+      "TotalPrice": "100.00",
+      "OrderDate": "2023-07-03T12:02:59.692Z",
+      "CustomerName": "fds",
+      "CustomerMobile": 54,
+      "id": 3
+    },
+    {
+      "OrderType": "Dine in",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "2",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "114.00",
+      "OrderDate": "2023-07-03T12:44:32.319Z",
+      "CustomerName": "lo",
+      "CustomerMobile": 123123,
+      "TableNo": 25,
+      "ServiceFees": 0.14,
+      "id": 4
+    },
+    {
+      "OrderType": "Dine in",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "57.00",
+      "OrderDate": "2023-07-03T12:46:18.079Z",
+      "CustomerName": "lll",
+      "CustomerMobile": 4,
+      "TableNo": 25,
+      "ServiceFees": 0.14,
+      "id": 5
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "50.00",
+      "OrderDate": "2023-07-03T12:51:15.903Z",
+      "id": 6
+    },
+    {
+      "OrderType": "Delivery",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "5",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "290.00",
+      "OrderDate": "2023-07-03T12:52:15.207Z",
+      "Address": "jjj",
+      "DeliveryFees": 40,
+      "id": 7
     }
   ]
 }

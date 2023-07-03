@@ -12,9 +12,15 @@ export class CartService {
 
   apiUrl = environment.apiUrl
   cartItems: Product[] = []
+
   private cartItemsSubject = new BehaviorSubject<Product[]>([])
   cartItems$: Observable<Product[]> = this.cartItemsSubject.asObservable()
+
+  private paymentSubject = new BehaviorSubject<boolean>(false)
+  payment$: Observable<boolean> = this.paymentSubject.asObservable()
   
+  private isCartVisibleSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+  isCartVisible$: Observable<boolean> = this.isCartVisibleSubject.asObservable()
 
   constructor(private http: HttpClient) {
     this.getCartItems$().subscribe(cartItems => {
@@ -30,17 +36,23 @@ export class CartService {
     //   console.log('error')
     //   return;
     // }
+   
    this.getCartItems$().subscribe(cartItems => {
     let existingItem = cartItems.find(item => item.ProductName === product.ProductName)
     if(existingItem){
-      (existingItem.ProductQuantity)!++
+      if((existingItem.ProductQuantity || 0) >= existingItem.ProductAvailableQuantity){
+        console.log('error')
+        return
+      }
+      existingItem.ProductQuantity = (existingItem.ProductQuantity || 0) +1
+      // (existingItem.ProductQuantity)!++
       this.http.put(`${this.apiUrl}/Cart/${existingItem.id}`, existingItem).subscribe(()=>{
         this.getCartItems$().subscribe(updatedCartItems => {
           this.cartItemsSubject.next(updatedCartItems)
         })
       })
     } else{
-      let newItem = {...product, ProductQuantity: 1, id: parseInt(uuidv4(), 16)}
+      let newItem = {...product,ProductId: product.id, ProductQuantity: 1, id: parseInt(uuidv4(), 16)}
       this.http.post(`${this.apiUrl}/Cart`, newItem).subscribe(()=>{
         this.getCartItems$().subscribe(updatedCartItems => {
           this.cartItemsSubject.next(updatedCartItems)
@@ -52,10 +64,10 @@ export class CartService {
   }
 
 
-  getCartItems(): Observable<Product[]>{
-    return this.http.get<Product[]>(`${this.apiUrl}/Cart`)
+  // getCartItems(): Observable<Product[]>{
+  //   return this.http.get<Product[]>(`${this.apiUrl}/Cart`)
     
-  }
+  // }
 
   getCartItems$(): Observable<Product[]>{
     return this.http.get<Product[]>(`${this.apiUrl}/Cart`)
@@ -91,5 +103,13 @@ export class CartService {
     //   this.cartItemsSubject.next([])
     //   console.log(this.cartItemsSubject)
     // })
+  }
+
+  sendPaymentFlag(flag: boolean){
+    this.paymentSubject.next(flag)
+  }
+
+  sendCartFlag(flag: boolean){
+    this.isCartVisibleSubject.next(flag)
   }
 }

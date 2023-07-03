@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment'
 import { HttpClient } from '@angular/common/http'
 import { Product } from '@app/data-types';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { CategoriesService } from './categories.service';
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,11 @@ import { CategoriesService } from './categories.service';
 export class ProductsService {
   apiUrl = environment.apiUrl
 
-constructor(private http: HttpClient, private categoriesService: CategoriesService) { }
+  private productsSubject = new BehaviorSubject<Product[]>([])
+  products$: Observable<Product[]> = this.productsSubject.asObservable()
+
+constructor(private http: HttpClient, private categoriesService: CategoriesService) {
+ }
 
   addProduct(data: Product){
     return this.http.post<Product>(`${this.apiUrl}/Products`, data)
@@ -19,6 +23,8 @@ constructor(private http: HttpClient, private categoriesService: CategoriesServi
   getProduct(productId: number){
     return this.http.get<Product>(`${this.apiUrl}/Products/${productId}`)
   }
+  
+ 
 
   getProducts(){
     return this.http.get<Product[]>(`${this.apiUrl}/Products`)
@@ -41,5 +47,6 @@ constructor(private http: HttpClient, private categoriesService: CategoriesServi
     return this.http.get<Product[]>(url)
   }
 
+ 
 
 }
