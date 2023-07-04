@@ -1,1 +1,89 @@
-<p>orders works!</p>
+<div class="orders-container">
+    <mat-tab-group>
+        <mat-tab label="Pending Orders"> <div class="orders">
+            <div class="order-card" *ngFor="let order of pendingOrders$ | async">
+              <div class="order-card-header">
+                <div class="order-card-id">Order #{{ order.id }}</div>
+                <div class="order-card-time">{{ order.OrderDate | date: 'medium' }}</div>
+                <div class="order-card-status" [ngClass]="{ 'pending': order.OrderStatus === 'Pending', 'preparing': order.OrderStatus === 'Preparing', 'completed': order.OrderStatus === 'Completed' }">{{ order.OrderStatus }}</div>
+              </div>
+              <div class="order-card-body">
+                <div class="order-card-items">
+                  <div class="order-card-item" *ngFor="let item of order.ProductName.split(',')">
+                    <div class="item-name">{{ item }}</div>
+                    <span *ngIf="order.ProductNotes" class="item-notes">
+                      {{ order.ProductNotes.split(',')[order.ProductName.split(',').indexOf(item)] }}
+                  </span>
+                    <div class="item-quantity">
+                      x{{ order.ProductQuantity.split(',')[order.ProductName.split(',').indexOf(item)] }}
+                     
+                    </div>
+                  </div>
+                </div>
+           
+                <div class="order-card-total-price">{{ order.TotalPrice }} EGP</div>
+                <button class="btn action-btn btn-sm w-25 m-auto" *ngIf="order.OrderStatus == 'Pending'" (click)="prepareOrder(order)">Prepare</button>
+                <button class="btn action-btn btn-sm w-25 m-auto" *ngIf="order.OrderStatus == 'Preparing'" (click)="completeOrder(order)">Complete</button>
+              </div>
+            </div>
+            <div class="no-orders" *ngIf="(pendingOrders$ | async)!.length === 0">No pending orders to prepare.</div>
+          </div> </mat-tab>
+        <mat-tab label="Preparing Orders"> <div class="orders">
+            <div class="order-card" *ngFor="let order of preparingOrders$ | async">
+              <div class="order-card-header">
+                <div class="order-card-id">Order #{{ order.id }}</div>
+                <div class="order-card-time">{{ order.OrderDate | date: 'medium' }}</div>
+                <div class="order-card-status" [ngClass]="{ 'pending': order.OrderStatus === 'Pending', 'preparing': order.OrderStatus === 'Preparing', 'completed': order.OrderStatus === 'Completed' }">{{ order.OrderStatus }}</div>
+              </div>
+              <div class="order-card-body">
+                <div class="order-card-items">
+                  <div class="order-card-item" *ngFor="let item of order.ProductName.split(',')">
+                    <div class="item-name">{{ item }}</div>
+                    <span *ngIf="order.ProductNotes" class="item-notes">
+                      {{ order.ProductNotes.split(',')[order.ProductName.split(',').indexOf(item)] }}
+                  </span>
+                    <div class="item-quantity">
+                      x{{ order.ProductQuantity.split(',')[order.ProductName.split(',').indexOf(item)] }}
+                     
+                    </div>
+                  </div>
+                </div>
+           
+                <div class="order-card-total-price">{{ order.TotalPrice }} EGP</div>
+                <button class="btn action-btn btn-sm w-25 m-auto" *ngIf="order.OrderStatus == 'Pending'" (click)="prepareOrder(order)">Prepare</button>
+                <button class="btn action-btn btn-sm w-25 m-auto" *ngIf="order.OrderStatus == 'Preparing'" (click)="completeOrder(order)">Complete</button>
+              </div>
+            </div>
+            <div class="no-orders" *ngIf="(preparingOrders$ | async)!.length === 0">No preparing orders.</div>
+          </div> </mat-tab>
+        <mat-tab label="Completed Orders"> <div class="orders">
+            <div class="order-card" *ngFor="let order of completedOrders$ | async">
+              <div class="order-card-header">
+                <div class="order-card-id">Order #{{ order.id }}</div>
+                <div class="order-card-time">{{ order.OrderDate | date: 'medium' }}</div>
+                <div class="order-card-status" [ngClass]="{ 'pending': order.OrderStatus === 'Pending', 'preparing': order.OrderStatus === 'Preparing', 'completed': order.OrderStatus === 'Completed' }">{{ order.OrderStatus }}</div>
+              </div>
+              <div class="order-card-body">
+                <div class="order-card-items">
+                  <div class="order-card-item" *ngFor="let item of order.ProductName.split(',')">
+                    <div class="item-name">{{ item }}</div>
+                    <span *ngIf="order.ProductNotes" class="item-notes">
+                      {{ order.ProductNotes.split(',')[order.ProductName.split(',').indexOf(item)] }}
+                  </span>
+                    <div class="item-quantity">
+                      x{{ order.ProductQuantity.split(',')[order.ProductName.split(',').indexOf(item)] }}
+                     
+                    </div>
+                  </div>
+                </div>
+           
+                <div class="order-card-total-price">{{ order.TotalPrice }} EGP</div>
+                <button class="btn action-btn btn-sm w-25 m-auto" *ngIf="order.OrderStatus == 'Pending'" (click)="prepareOrder(order)">Prepare</button>
+                <button class="btn action-btn btn-sm w-25 m-auto" *ngIf="order.OrderStatus == 'Preparing'" (click)="completeOrder(order)">Complete</button>
+              </div>
+            </div>
+            <div class="no-orders" *ngIf="(completedOrders$ | async)!.length === 0">No completed orders.</div>
+          </div> </mat-tab>
+      </mat-tab-group>
+    
+  </div>

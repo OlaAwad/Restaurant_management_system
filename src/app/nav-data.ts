@@ -21,7 +21,7 @@ export const navbarData = [
         routerLink:'orders',
         icon:'fa-solid fa-clipboard',
         label: 'Orders',
-        employeeType: 'Admin, Chef'
+        employeeType: 'Admin, Chef, Cashier'
     },
     {
         routerLink:'sales',

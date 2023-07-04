@@ -1,0 +1,112 @@
+.orders-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: var(--mainColor);
+  }
+  
+  .orders {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .order-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .order-card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .order-card-id {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .order-card-time {
+    font-size: 0.8em;
+    color: #666;
+  }
+  
+  .order-card-status {
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .order-card-status.pending {
+    color: #ffc107;
+    background-color: #fff3cd;
+  }
+  
+  .order-card-status.preparing {
+    color: #007bff;
+    background-color: #cfe2ff;
+  }
+  
+  .order-card-status.completed {
+    color: #28a745;
+    background-color: #c3e6cb;
+  }
+  
+  .order-card-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .order-card-items {
+    margin: 10px 0;
+  }
+  
+  .order-card-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  .item-name {
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  
+  .item-quantity {
+    font-size: 1.1em;
+    color: #666;
+  }
+  
+  .item-notes{
+    font-weight: 500;
+    color: var(--gray);
+  }
+  
+  
+  .order-card-total-price {
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: auto;
+    color: var(--gray);
+  }
+  
+  .no-orders {
+    font-size: 1.2em;
+    text-align: center;
+    margin: 20px;
+  }

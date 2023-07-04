@@ -17,4 +17,12 @@ export class OrderService {
   saveOrder(order: Order){
     return this.http.post(`${this.apiUrl}/Orders`, order)
   }
+
+  getOrders(){
+    return this.http.get<Order[]>(`${this.apiUrl}/Orders`)
+  }
+
+  updateOrder(order: Order){
+    return this.http.put(`${this.apiUrl}/Orders/${order.id}`, order)
+  }
 }

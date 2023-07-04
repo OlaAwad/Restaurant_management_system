@@ -66,5 +66,16 @@ export interface Order{
     Address?: string,
     DeliveryFees?: number,
     ServiceFees?: number,
-    ProductId: number[]
+    // ProductId: number[],
+    OrderStatus: string,
+    id?: string
+}
+
+export interface SalesData{
+    [Date: string]:{
+        [Category: string]:{
+            Quantity: number,
+            Revenue: number
+        }
+    }
 }

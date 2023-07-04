@@ -141,7 +141,7 @@
       "ProductName": "Lentil soup",
       "ProductImage": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
       "ProductPrice": 50,
-      "ProductAvailableQuantity": 10,
+      "ProductAvailableQuantity": 8,
       "ProductCategory": "Soups",
       "id": 8
     },
@@ -196,6 +196,7 @@
       "ProductPrice": "50",
       "TotalPrice": "50.00",
       "OrderDate": "2023-07-03T11:52:20.812Z",
+      "OrderStatus": "Completed",
       "id": 1
     },
     {
@@ -206,6 +207,7 @@
       "ProductPrice": "50",
       "TotalPrice": "350.00",
       "OrderDate": "2023-07-03T12:02:37.516Z",
+      "OrderStatus": "Completed",
       "CustomerName": "lll5",
       "CustomerMobile": 55555555,
       "id": 2
@@ -218,6 +220,7 @@
       "ProductPrice": "50, 50",
       "TotalPrice": "100.00",
       "OrderDate": "2023-07-03T12:02:59.692Z",
+      "OrderStatus": "Preparing",
       "CustomerName": "fds",
       "CustomerMobile": 54,
       "id": 3
@@ -230,6 +233,7 @@
       "ProductPrice": "50",
       "TotalPrice": "114.00",
       "OrderDate": "2023-07-03T12:44:32.319Z",
+      "OrderStatus": "Pending",
       "CustomerName": "lo",
       "CustomerMobile": 123123,
       "TableNo": 25,
@@ -244,6 +248,7 @@
       "ProductPrice": "50",
       "TotalPrice": "57.00",
       "OrderDate": "2023-07-03T12:46:18.079Z",
+      "OrderStatus": "Pending",
       "CustomerName": "lll",
       "CustomerMobile": 4,
       "TableNo": 25,
@@ -258,6 +263,7 @@
       "ProductPrice": "50",
       "TotalPrice": "50.00",
       "OrderDate": "2023-07-03T12:51:15.903Z",
+      "OrderStatus": "Pending",
       "id": 6
     },
     {
@@ -268,9 +274,58 @@
       "ProductPrice": "50",
       "TotalPrice": "290.00",
       "OrderDate": "2023-07-03T12:52:15.207Z",
+      "OrderStatus": "Pending",
       "Address": "jjj",
       "DeliveryFees": 40,
       "id": 7
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "50.00",
+      "OrderDate": "2023-07-04T08:57:17.279Z",
+      "OrderStatus": "Pending",
+      "id": 8
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Garlic Soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "50.00",
+      "OrderDate": "2023-07-04T08:57:49.470Z",
+      "OrderStatus": "Pending",
+      "id": 9
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup, Chicken BBQ Pizza, Beef Sandwich",
+      "ProductQuantity": "1, 5, 1",
+      "ProductNotes": ", Alot of Sauce, Spicy",
+      "ProductPrice": "50, 125, 150",
+      "TotalPrice": "825.00",
+      "OrderDate": "2023-07-04T09:00:07.263Z",
+      "OrderStatus": "Completed",
+      "CustomerName": "Ola",
+      "CustomerMobile": 13211553,
+      "id": 10
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup, Beef Burger Sandwich, Chicken Sandwich",
+      "ProductQuantity": "1, 1, 1",
+      "ProductNotes": ", Spicy, ",
+      "ProductPrice": "50, 120, 120",
+      "TotalPrice": "290.00",
+      "OrderDate": "2023-07-04T09:02:18.143Z",
+      "OrderStatus": "Completed",
+      "CustomerName": "Ola",
+      "CustomerMobile": 1231,
+      "id": 11
     }
   ]
 }
