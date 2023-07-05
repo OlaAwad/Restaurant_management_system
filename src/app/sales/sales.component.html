@@ -1,24 +1,32 @@
 <div class="sales-container">
-    <h2>Sales Report</h2>
-    <table>
+    <h2 class="text-center">Sales Report</h2>
+    <table class="table table-bordered text-center">
         <thead>
-            <tr>
-                <th>Date</th>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Revenue</th>
-            </tr>
+          <tr>
+            <th>Date</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Revenue</th>
+            <!-- <th>Revenue for date</th> -->
+          </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let date of dates">
-                <td> {{date}} </td>
-                <ng-container *ngFor="let product of products">
-                    <td> {{product}} </td>
-                    <td> {{salesData[date][product]?.Quantity || 0}} </td>
-                    <td> {{salesData[date][product]?.Revenue | currency}} </td>
-                    
-                </ng-container>
+          <ng-container *ngFor="let date of salesDataKeys">
+            <tr class="date-row" data-toggle="collapse" [attr.data-target]="'#' + date" aria-expanded="false" (click)="toggleCollapse(date)">
+              <td > {{date}}</td>
+              <td></td>
+              <td></td>
+              <td>{{getTotalRevenueForDate(date)}} EGP</td>
             </tr>
+            <tr *ngFor="let product of productsKeys" id="{{date}}-{{product}}" class="collapse">
+              <ng-container *ngIf="salesData[date][product]">
+                <td></td>
+                <td>{{product}}</td>
+                <td>{{salesData[date][product].Quantity || 0}}</td>
+                <td>{{salesData[date][product].Revenue || 0}}</td>
+              </ng-container>
+            </tr>
+          </ng-container>
         </tbody>
-    </table>
+      </table>
 </div>

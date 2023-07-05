@@ -11,8 +11,9 @@ export class SalesComponent implements OnInit {
 
   orders: Order[] = []
   salesData: SalesData = {}
-  dates: string[] = []
-  products: string[] = []
+  products: any = {}
+  salesDataKeys: string[] = []
+  productsKeys: string[] = []
 
   constructor(private orderService: OrderService) { }
 
@@ -20,30 +21,39 @@ export class SalesComponent implements OnInit {
     this.orderService.getOrders().subscribe((orders) => {
       this.orders = orders
       this.salesData = this.generateSalesData(orders)
-      this.dates = Object.keys(this.salesData).sort().reverse()
-      this.products = this.getProducts(orders)
+      this.salesDataKeys = Object.keys(this.salesData)
+      this.productsKeys = Object.keys(this.products)
     })
   }
 
 
   generateSalesData(orders: Order[]): SalesData{
+    this.products = this.getProducts(orders)
     for(let order of this.orders){
-      let date = order.OrderDate.toISOString().substring(0, 10)
-      let product = order.ProductName
-      let quantity = parseInt(order.ProductQuantity)
-      let revenue = order.TotalPrice
+      let orderDate = new Date(order.OrderDate)
+      let date = orderDate.toISOString().substring(0, 10)
+      let products = order.ProductName.split(', ')
+      let quantities = order.ProductQuantity.split(', ')
+      let prices = order.ProductPrice.split(', ')
 
-      if(!this.salesData[date]){
-        this.salesData[date] = {}
-      }
-      if(!this.salesData[date][product]){
-        this.salesData[date][product] = {
-          Quantity: 0,
-          Revenue: 0
+      for(let i = 0; i < products.length; i++){
+        let product = products[i]
+        let quantity = parseInt(quantities[i])
+        let revenue = parseFloat(prices[i]) * quantity
+
+        if(!this.salesData[date]){
+          this.salesData[date] = {}
         }
+        if(!this.salesData[date][product]){
+          this.salesData[date][product] = {
+            Quantity: 0,
+            Revenue: 0
+          }
+        }
+        this.salesData[date][product].Quantity += quantity
+        this.salesData[date][product].Revenue += revenue
       }
-      this.salesData[date][product].Quantity += quantity
-      this.salesData[date][product].Revenue += revenue
+
 
     }
 
@@ -51,13 +61,41 @@ export class SalesComponent implements OnInit {
 
   }
 
-  getProducts(orders: Order[]): string[]{
-    let products = new Set<string>()
+
+  getProducts(orders: Order[]): { [key: string]: number}{
+    let products: {[key: string]: number} = {}
+    let productIndex = 0
 
     for(let order of orders){
-      products.add(order.ProductName)
+      let productNames = order.ProductName.split(', ')
+      for(let productName of productNames){
+        if(!(productName in products)){
+          products[productName] = productIndex
+          productIndex ++
+        }
+      }
     }
-    return Array.from(products).sort()
+    return products
   }
 
+  getTotalRevenueForDate(date: string): number{
+    let totalRevenue = 0
+    for(let product of this.productsKeys){
+      if(this.salesData[date][product]){
+        totalRevenue += this.salesData[date][product].Revenue || 0
+      }
+    }
+    return totalRevenue
+  }
+
+  toggleCollapse(date: string){
+    for(let product of this.productsKeys){
+      let row = document.getElementById(date + '-' + product)
+      if(row?.classList.contains('show')){
+        row.classList.remove('show')
+      } else{
+        row?.classList.add('show')
+      }
+    }
+  }
 }
