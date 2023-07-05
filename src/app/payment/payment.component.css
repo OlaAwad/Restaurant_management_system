@@ -25,6 +25,20 @@ hr{
     align-items: center;
     color: white;
 }
+/* .mat-tab-label-container {
+    margin-bottom: 1.2em;
+} */
+.mat-tab-label{
+    height: 65px;
+}
+.mat-tab-label .mat-tab-label-content{
+    display: flex;
+    flex-direction: column;
+    color: gray;
+}
+.mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination{
+    display: none;
+}
 ::ng-deep .mat-tab-header-pagination {
     display: none !important;
 }

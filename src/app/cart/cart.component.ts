@@ -63,6 +63,10 @@ export class CartComponent implements OnInit {
     } 
   }
 
+  closeCart(){
+    this.cartService.sendCartFlag(false)
+  }
+
  
 
   sendPaymentFlag(flag: boolean){

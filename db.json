@@ -133,17 +133,21 @@
       "ProductName": "Garlic Soup",
       "ProductImage": "https://images.unsplash.com/photo-1611745451987-bd5df5565d9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=821&q=80",
       "ProductPrice": 50,
-      "ProductAvailableQuantity": 26,
+      "ProductAvailableQuantity": 23,
       "ProductCategory": "Soups",
-      "id": 7
+      "id": 7,
+      "ProductId": 7,
+      "ProductQuantity": 1
     },
     {
+      "id": 8,
       "ProductName": "Lentil soup",
       "ProductImage": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
-      "ProductPrice": 50,
-      "ProductAvailableQuantity": 8,
+      "ProductPrice": "50",
+      "ProductAvailableQuantity": 23,
       "ProductCategory": "Soups",
-      "id": 8
+      "ProductId": 8,
+      "ProductQuantity": 1
     },
     {
       "ProductName": "Mix Cheese Sandwich",
@@ -154,12 +158,12 @@
       "id": 9
     },
     {
-      "ProductName": "Chicken Strips Sandwich",
+      "id": 10,
+      "ProductName": "Chicken Burger Sandwich",
       "ProductImage": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
-      "ProductPrice": 65,
-      "ProductAvailableQuantity": 22,
-      "ProductCategory": "Sandwich",
-      "id": 10
+      "ProductPrice": "65",
+      "ProductAvailableQuantity": "22",
+      "ProductCategory": "Sandwich"
     },
     {
       "ProductName": "Chicken BBQ Pizza",
@@ -220,7 +224,7 @@
       "ProductPrice": "50, 50",
       "TotalPrice": "100.00",
       "OrderDate": "2023-07-03T12:02:59.692Z",
-      "OrderStatus": "Preparing",
+      "OrderStatus": "Completed",
       "CustomerName": "fds",
       "CustomerMobile": 54,
       "id": 3
@@ -233,7 +237,7 @@
       "ProductPrice": "50",
       "TotalPrice": "114.00",
       "OrderDate": "2023-07-03T12:44:32.319Z",
-      "OrderStatus": "Pending",
+      "OrderStatus": "Completed",
       "CustomerName": "lo",
       "CustomerMobile": 123123,
       "TableNo": 25,
@@ -248,7 +252,7 @@
       "ProductPrice": "50",
       "TotalPrice": "57.00",
       "OrderDate": "2023-07-03T12:46:18.079Z",
-      "OrderStatus": "Pending",
+      "OrderStatus": "Completed",
       "CustomerName": "lll",
       "CustomerMobile": 4,
       "TableNo": 25,
@@ -263,7 +267,7 @@
       "ProductPrice": "50",
       "TotalPrice": "50.00",
       "OrderDate": "2023-07-03T12:51:15.903Z",
-      "OrderStatus": "Pending",
+      "OrderStatus": "Preparing",
       "id": 6
     },
     {
@@ -326,6 +330,164 @@
       "CustomerName": "Ola",
       "CustomerMobile": 1231,
       "id": 11
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Mix Cheese Sandwich, Beef Sandwich",
+      "ProductQuantity": "3, 1",
+      "ProductNotes": ", Spicy",
+      "ProductPrice": "40, 150",
+      "TotalPrice": "270.00",
+      "OrderDate": "2023-07-05T09:14:37.872Z",
+      "OrderStatus": "Completed",
+      "id": 12
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "8",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "400.00",
+      "OrderDate": "2023-07-05T12:27:29.120Z",
+      "OrderStatus": "Pending",
+      "id": 13
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Garlic Soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "50.00",
+      "OrderDate": "2023-07-05T12:27:52.719Z",
+      "OrderStatus": "Pending",
+      "id": 14
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Garlic Soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "50.00",
+      "OrderDate": "2023-07-05T12:47:11.605Z",
+      "OrderStatus": "Pending",
+      "id": 15
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Garlic Soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "50.00",
+      "OrderDate": "2023-07-05T12:47:50.198Z",
+      "OrderStatus": "Pending",
+      "id": 16
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Garlic Soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "50.00",
+      "OrderDate": "2023-07-05T12:53:48.607Z",
+      "OrderStatus": "Pending",
+      "id": 17
+    },
+    {
+      "OrderType": "Dine in",
+      "ProductName": "Garlic Soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "57.00",
+      "OrderDate": "2023-07-05T12:56:37.926Z",
+      "OrderStatus": "Pending",
+      "TableNo": 1,
+      "ServiceFees": 0.14,
+      "id": 18
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Garlic Soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "50.00",
+      "OrderDate": "2023-07-05T12:57:34.029Z",
+      "OrderStatus": "Pending",
+      "id": 19
+    },
+    {
+      "OrderType": "Dine in",
+      "ProductName": "Garlic Soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "57.00",
+      "OrderDate": "2023-07-05T12:59:40.589Z",
+      "OrderStatus": "Pending",
+      "TableNo": 3,
+      "ServiceFees": 0.14,
+      "id": 20
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Garlic Soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "50.00",
+      "OrderDate": "2023-07-05T13:09:34.636Z",
+      "OrderStatus": "Pending",
+      "id": 21
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Garlic Soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "50.00",
+      "OrderDate": "2023-07-05T13:11:19.204Z",
+      "OrderStatus": "Pending",
+      "id": 22
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "50.00",
+      "OrderDate": "2023-07-05T13:52:16.704Z",
+      "OrderStatus": "Pending",
+      "id": 23
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Garlic Soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "50.00",
+      "OrderDate": "2023-07-05T13:55:22.376Z",
+      "OrderStatus": "Pending",
+      "id": 24
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "50.00",
+      "OrderDate": "2023-07-05T14:08:32.767Z",
+      "OrderStatus": "Pending",
+      "id": 25
     }
   ]
 }

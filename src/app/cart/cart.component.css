@@ -8,6 +8,10 @@
 .cart-title{
     color: var(--white);
 }
+.fa-xmark{
+    color: var(--white);
+    cursor: pointer;
+}
 .orderPlace .btn{
     border: 1px solid var(--white);
     color: white;

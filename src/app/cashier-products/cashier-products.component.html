@@ -1,7 +1,21 @@
+
+
 <mat-tab-group class="w-100">
     <mat-tab *ngFor="let cat of categories" label="{{ cat.CategoryName }}">
       <div class="menu-container menu">
-        <div class="row mt-5">
+       <div class="d-flex justify-content-center mt-4">
+        <form class="form-inline mb-2 d-flex searchForm">
+          <input
+            #searchInput
+            class="form-control mr-sm-2"
+            type="text"
+            placeholder="Search Products"
+            aria-label="Search"
+            (keyup)="searchProduct($event)"
+          />
+        </form>
+       </div>
+        <div class="row mt-3">
           <div
             class="col-lg-3 col-md-4"
             *ngFor="let product of products | filterByCategory: cat"

@@ -1,10 +1,16 @@
 <div class="cart">
   <div class="cart-header">
-    <h2 class="cart-title">
-      Order
-      <span>#1213</span>
-    </h2>
-    <div class="orderPlace mb-4">
+    <div class="d-flex justify-content-between">
+      <h2 class="cart-title">
+        Order
+        <!-- <span>#1213</span> -->
+      </h2>
+      <div class="close" (click)="closeCart()">
+        <i class="fa-solid fa-xmark fa-sm"></i>
+      </div>
+    </div>
+    
+    <!-- <div class="orderPlace mb-4">
       <button
         class="btn btn-sm mr-2"
         [class.active]="orderType === 'Dine in'"
@@ -26,7 +32,7 @@
       >
         Delivery
       </button>
-    </div>
+    </div> -->
     <div class="clear mb-2" (click)="clearCart()" *ngIf="cartItems.length!=0">
       Clear Cart
     </div>

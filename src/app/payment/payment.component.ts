@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 import { MatIconModule } from '@angular/material/icon'
 import { MatTabsModule } from '@angular/material/tabs'
 import { Order, Product } from '@app/data-types'
@@ -11,6 +11,7 @@ import { map, take } from 'rxjs/operators'
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PaymentComponent implements OnInit {
   orderTypes: string[] = ['Dine in', 'To Go', 'Delivery']
@@ -68,32 +69,146 @@ export class PaymentComponent implements OnInit {
     this.cartService.sendPaymentFlag(false)
   }
 
+  // submit() {
+  //   console.log('submit() method called')
+
+  //   if (this.isFormValid()) {
+  //     // let cartItems = this.cartService.getCartItems$()
+  //     this.cartService.cartItems$.pipe(take(1)).subscribe((cart_items) => {
+  //       console.log('cartItems$ observable emitted a value')
+
+  //       let cartItems: Product[] = cart_items
+
+  //       let customerMobileString = (<HTMLInputElement>(
+  //         document.getElementById('CustomerMobile')
+  //       ))?.value
+  //       let tableNoString = (<HTMLInputElement>(
+  //         document.getElementById('TableNo')
+  //       ))?.value
+
+  //       let productIds = cartItems.map((item) => item.id)
+
+  //       let order: Order = {
+  //         OrderType: this.selectedType,
+  //         // ProductId: productIds,
+  //         ProductName: '',
+  //         ProductQuantity: '',
+  //         ProductNotes: '',
+  //         ProductPrice: '',
+  //         TotalPrice: 0,
+  //         OrderDate: new Date(),
+  //         OrderStatus: 'Pending',
+  //         CustomerName: (<HTMLInputElement>(
+  //           document.getElementById('CustomerName')
+  //         ))?.value,
+  //         CustomerMobile: customerMobileString
+  //           ? parseInt(customerMobileString)
+  //           : undefined,
+  //         TableNo: tableNoString ? parseInt(tableNoString) : undefined,
+  //         Address: (<HTMLInputElement>document.getElementById('address'))
+  //           ?.value,
+  //       }
+
+  //       // order.ProductId = cartItems.map((item) => item.id).join(', ')
+  //       order.ProductName = cartItems.map((item) => item.ProductName).join(', ')
+  //       // order.ProductQuantity = cartItems.reduce((total: any, item: Product) => total + item.ProductQuantity, 0)
+  //       order.ProductQuantity = cartItems
+  //         .map((item) => item.ProductQuantity)
+  //         .join(', ')
+
+  //       order.ProductNotes = cartItems
+  //         .map((item) => item.ProductNotes)
+  //         .join(', ')
+
+  //       order.ProductPrice = cartItems
+  //         .map((item) => item.ProductPrice)
+  //         .join(', ')
+
+  //       let totalPrice = cartItems.reduce(
+  //         (total: any, item: Product) =>
+  //           total + item.ProductPrice * item.ProductQuantity!,
+  //         0,
+  //       )
+
+  //       if (this.selectedType === 'Delivery') {
+  //         // Add delivery fees to the total price
+  //         order.DeliveryFees = 40
+  //         totalPrice += order.DeliveryFees
+  //       } else if (this.selectedType === 'Dine in') {
+  //         // Add service fees to the total price
+  //         order.ServiceFees = 0.14
+
+  //         totalPrice = totalPrice + totalPrice * order.ServiceFees
+  //       }
+
+  //       order.TotalPrice = totalPrice.toFixed(2)
+  //       order.OrderStatus = 'Pending'
+
+  //       if (this.selectedMethodIndex === 0) {
+  //         let cardNumber = (<HTMLInputElement>(
+  //           document.getElementById('CardNumber')
+  //         )).value
+  //         this.orderService.saveOrder(order).subscribe(() => {
+  //           console.log('order: ', order)
+  //           //Update the available quantity of products:
+  //           console.log('cartItems: ', cartItems)
+  //           cartItems.forEach(item =>{
+  //             item.ProductAvailableQuantity -= item.ProductQuantity!
+  //             this.productService.updateProduct(item).subscribe()
+  //             // this.productService.getProduct(item.ProductId!).subscribe((product) =>{
+  //             //   product.ProductAvailableQuantity -= item.ProductQuantity!
+  //             //   this.productService.updateProduct(product).subscribe()
+  //             // })
+  //           })
+  //           //Empty the cart and close the payment dialog
+  //           this.cartService.clearCart()
+  //           this.cartService.sendPaymentFlag(false)
+  //           this.sendCartFlag(false)
+  //         })
+  //       } else if (this.selectedMethodIndex === 1) {
+  //         this.orderService.saveOrder(order).subscribe(() => {
+  //           console.log('order: ', order)
+  //           //Update the available quantity of products:
+  //           // cartItems.forEach((item) => {
+  //           //   console.log('item: ', item)
+  //           //   this.productService.getProduct(item.ProductId!).subscribe((product) => {
+  //           //     console.log('product: ', product)
+  //           //     product.ProductAvailableQuantity -= item.ProductQuantity!
+  //           //     this.productService.updateProduct(product).subscribe()
+  //           //   })
+  //           // })
+
+  //           this.cartService.clearCart()
+  //           this.cartService.sendPaymentFlag(false)
+  //           this.sendCartFlag(false)
+  //         })
+  //       }
+  //     })
+  //   }
+  // }
+
+
   submit() {
     console.log('submit() method called')
-
+  
     if (this.isFormValid()) {
-      // let cartItems = this.cartService.getCartItems$()
-      this.cartService.cartItems$.pipe(take(1)).subscribe((cart_items) => {
-        console.log('cartItems$ observable emitted a value')
-
-        let cartItems: Product[] = cart_items
-
+      this.cartService.cartItems$.pipe(take(1)).subscribe((cartItems: Product[]) => {
+        
         let customerMobileString = (<HTMLInputElement>(
           document.getElementById('CustomerMobile')
         ))?.value
         let tableNoString = (<HTMLInputElement>(
           document.getElementById('TableNo')
         ))?.value
-
+  
         let productIds = cartItems.map((item) => item.id)
-
+  
         let order: Order = {
           OrderType: this.selectedType,
-          // ProductId: productIds,
-          ProductName: '',
-          ProductQuantity: '',
-          ProductNotes: '',
-          ProductPrice: '',
+          ProductName: cartItems.map((item) => item.ProductName).join(', '),
+          ProductQuantity: cartItems.map((item) => item.ProductQuantity).join(', '),
+          ProductNotes: cartItems.map((item) => item.ProductNotes).join(', '),
+          ProductPrice: cartItems.map((item) => item.ProductPrice).join(', '),
           TotalPrice: 0,
           OrderDate: new Date(),
           OrderStatus: 'Pending',
@@ -104,62 +219,41 @@ export class PaymentComponent implements OnInit {
             ? parseInt(customerMobileString)
             : undefined,
           TableNo: tableNoString ? parseInt(tableNoString) : undefined,
-          Address: (<HTMLInputElement>document.getElementById('address'))
-            ?.value,
+          Address: (<HTMLInputElement>document.getElementById('address'))?.value,
         }
-
-        // order.ProductId = cartItems.map((item) => item.id).join(', ')
-        order.ProductName = cartItems.map((item) => item.ProductName).join(', ')
-        // order.ProductQuantity = cartItems.reduce((total: any, item: Product) => total + item.ProductQuantity, 0)
-        order.ProductQuantity = cartItems
-          .map((item) => item.ProductQuantity)
-          .join(', ')
-
-        order.ProductNotes = cartItems
-          .map((item) => item.ProductNotes)
-          .join(', ')
-
-        order.ProductPrice = cartItems
-          .map((item) => item.ProductPrice)
-          .join(', ')
-
+  
         let totalPrice = cartItems.reduce(
           (total: any, item: Product) =>
             total + item.ProductPrice * item.ProductQuantity!,
           0,
         )
-
+  
         if (this.selectedType === 'Delivery') {
-          // Add delivery fees to the total price
           order.DeliveryFees = 40
           totalPrice += order.DeliveryFees
         } else if (this.selectedType === 'Dine in') {
-          // Add service fees to the total price
           order.ServiceFees = 0.14
-
           totalPrice = totalPrice + totalPrice * order.ServiceFees
         }
-
+  
         order.TotalPrice = totalPrice.toFixed(2)
         order.OrderStatus = 'Pending'
-
+  
         if (this.selectedMethodIndex === 0) {
           let cardNumber = (<HTMLInputElement>(
             document.getElementById('CardNumber')
           )).value
+  
           this.orderService.saveOrder(order).subscribe(() => {
             console.log('order: ', order)
-            //Update the available quantity of products:
-            console.log('cartItems: ', cartItems)
-            // cartItems.forEach((item) => {
-            //   console.log('item: ', item)
-            //   this.productService.getProduct(item.ProductId!).subscribe((product) => {
-            //     console.log('product: ', product)
-            //     product.ProductAvailableQuantity -= item.ProductQuantity!
-            //     this.productService.updateProduct(product).subscribe()
-            //   })
-            // })
-            //Empty the cart and close the payment dialog
+            // Update the available quantity of products
+            cartItems.forEach((item) => {
+              item.ProductAvailableQuantity -= item.ProductQuantity!
+              console.log('item: ', item)
+              console.log('AQ', item.ProductAvailableQuantity)
+              this.productService.updateProductII(item.ProductId!, item).subscribe()
+            })
+            // Empty the cart and close the payment dialog
             this.cartService.clearCart()
             this.cartService.sendPaymentFlag(false)
             this.sendCartFlag(false)
@@ -167,16 +261,12 @@ export class PaymentComponent implements OnInit {
         } else if (this.selectedMethodIndex === 1) {
           this.orderService.saveOrder(order).subscribe(() => {
             console.log('order: ', order)
-            //Update the available quantity of products:
-            // cartItems.forEach((item) => {
-            //   console.log('item: ', item)
-            //   this.productService.getProduct(item.ProductId!).subscribe((product) => {
-            //     console.log('product: ', product)
-            //     product.ProductAvailableQuantity -= item.ProductQuantity!
-            //     this.productService.updateProduct(product).subscribe()
-            //   })
-            // })
-
+            // Update the available quantity of products
+            cartItems.forEach((item) => {
+              item.ProductAvailableQuantity -= item.ProductQuantity!
+              this.productService.updateProduct(item).subscribe()
+            })
+            // Empty the cart and close the payment dialog
             this.cartService.clearCart()
             this.cartService.sendPaymentFlag(false)
             this.sendCartFlag(false)
@@ -189,6 +279,8 @@ export class PaymentComponent implements OnInit {
   sendCartFlag(flag: boolean) {
     this.cartService.sendCartFlag(flag)
   }
+
+
 
   
 

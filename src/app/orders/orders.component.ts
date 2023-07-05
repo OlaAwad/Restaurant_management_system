@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from '@app/data-types';
+import { EmployeeService } from '@app/services/employee.service';
 import { OrderService } from '@app/services/order.service';
 import { BehaviorSubject } from 'rxjs';
 
@@ -11,19 +12,17 @@ import { BehaviorSubject } from 'rxjs';
 export class OrdersComponent implements OnInit {
 
   orders: Order[] = []
-  // PendingOrders: Order[] = []
-  // PreparingOrders: Order[] = []
-  // CompletedOrders: Order[] = []
-
   pendingOrders$ = new BehaviorSubject<Order[]>([])
   preparingOrders$ = new BehaviorSubject<Order[]>([])
   completedOrders$ = new BehaviorSubject<Order[]>([])
+  employeeType: string = ''
 
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService, private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
     this.getOrders()
+    this.getEmployeeType()
   }
 
   getOrders(){
@@ -51,6 +50,13 @@ export class OrdersComponent implements OnInit {
       let preparingOrders = this.preparingOrders$.value.filter((o) => o.id !== order.id)
       this.preparingOrders$.next(preparingOrders)
       this.completedOrders$.next([...this.completedOrders$.value, updatedOrder])
+    })
+  }
+
+  getEmployeeType(){
+    this.employeeService.employeeType$.subscribe(type =>{
+      // console.log('type:', type)
+      this.employeeType = type!
     })
   }
 

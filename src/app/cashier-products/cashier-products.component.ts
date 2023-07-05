@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Category, Product } from '@app/data-types';
 import { ProductsService } from '@app/services/products.service';
 import { CategoriesService } from '@app/services/categories.service';
@@ -27,7 +27,8 @@ import { map, take } from 'rxjs';
     //     animate('500ms ease-in-out', style({ transform: 'translateX(-100%)'}))
     //   ])
     // ])
-  ]
+  ],
+  encapsulation: ViewEncapsulation.None
 })
 export class CashierProductsComponent implements OnInit {
 
@@ -47,10 +48,27 @@ export class CashierProductsComponent implements OnInit {
     this.receivePaymentFlag()
     this.getCartFlag()
     // this.getPrdAvailableQuantity()
+    this.productsService.updatedProduct$.subscribe((updatedProduct) => {
+      let index = this.products.findIndex((product) => {
+        product.id === updatedProduct.id
+      })
+      if(index !== -1){
+        this.products[index] = updatedProduct
+      }
+    })
+    // this.productsService.updatedProduct$.subscribe((product) => {
+    //   let index = this.products.findIndex((p) => p.id === product.id)
+    //   if(index !== -1){
+    //     this.products[index] = product
+    //   }
+    // })
   }
 
   getProducts(){
-    this.productsService.getProducts().subscribe((products) => {
+    // this.productsService.getProducts().subscribe((products) => {
+    //   this.products = products
+    // })
+    this.productsService.products$.subscribe((products) => {
       this.products = products
     })
     
@@ -135,5 +153,8 @@ export class CashierProductsComponent implements OnInit {
   //   this.productsService.ProductAvailableQuantity$.subscribe()
   // }
 
+  
+
+  
 }
 

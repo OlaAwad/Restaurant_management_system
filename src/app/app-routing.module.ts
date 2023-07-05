@@ -13,7 +13,7 @@ import { SalesComponent } from './sales/sales.component';
 import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
-  // {path: '', redirectTo: 'authentication', pathMatch: 'full'},
+  {path: '', redirectTo: 'authentication', pathMatch: 'full'},
   {path: 'authentication', component: EntryPointComponent},
   {path: 'categories', component: CategoriesComponent},
   {path: 'products', component: ProductsComponent},

@@ -14,12 +14,16 @@ export class EmployeeService {
   isLoginError = new EventEmitter<boolean>(false)
   private employeeTypeSubject = new BehaviorSubject<string|null>(null)
   employeeType$ = this.employeeTypeSubject.asObservable()
+  empType: string = ''
 
   constructor(private http: HttpClient, private router: Router) {
     let employeeType = localStorage.getItem('EmployeeType')
     if(employeeType){
       this.employeeTypeSubject.next(employeeType)
     }
+    this.employeeType$.subscribe((type) => {
+      this.empType = type!
+    })
    }
 
    setEmployeeType(employeeType: string){
@@ -42,7 +46,13 @@ export class EmployeeService {
     this.http.get(`${this.apiUrl}/employees?Email=${data.Email}&Password=${data.Password}`, {observe:'response'}).subscribe((result: any) => {
       if(result && result.body && result.body.length){
         localStorage.setItem('employee', JSON.stringify(result.body))
-        this.router.navigate(['categories']);
+        if(this.empType == 'Admin'){
+          this.router.navigate(['categories']);
+        } else if(this.empType == 'Cashier'){
+          this.router.navigate(['cashierProducts'])
+        } else if(this.empType == 'Chef'){
+          this.router.navigate(['orders'])
+        }
         // (window as any).ngRef.instance.onLoginSuccess()
       }else{
         console.log('Login Failed')
