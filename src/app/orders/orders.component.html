@@ -21,7 +21,7 @@
                   </div>
                 </div>
            
-                <div class="order-card-total-price">{{ order.TotalPrice }} EGP</div>
+                <div class="order-card-total-price" *ngIf="!isChef">{{ order.TotalPrice }} EGP</div>
                 <button class="btn action-btn btn-sm w-25 m-auto" *ngIf="employeeType == 'Chef'" (click)="prepareOrder(order)">Prepare</button>
 
                 <!-- <button class="btn action-btn btn-sm w-25 m-auto" *ngIf="order.OrderStatus == 'Pending' && employeeType == 'Chef'" (click)="prepareOrder(order)">Prepare</button> -->
@@ -51,7 +51,7 @@
                   </div>
                 </div>
            
-                <div class="order-card-total-price">{{ order.TotalPrice }} EGP</div>
+                <div class="order-card-total-price"  *ngIf="!isChef">{{ order.TotalPrice }} EGP</div>
                 <button class="btn action-btn btn-sm w-25 m-auto" *ngIf="employeeType == 'Chef'" (click)="completeOrder(order)">Complete</button>
 
                 <!-- <button class="btn action-btn btn-sm w-25 m-auto" *ngIf="order.OrderStatus == 'Pending' && employeeType == 'Chef'" (click)="prepareOrder(order)">Prepare</button> -->
@@ -81,7 +81,7 @@
                   </div>
                 </div>
            
-                <div class="order-card-total-price">{{ order.TotalPrice }} EGP</div>
+                <div class="order-card-total-price" *ngIf="!isChef">{{ order.TotalPrice }} EGP</div>
                 <!-- <button class="btn action-btn btn-sm w-25 m-auto" *ngIf="order.OrderStatus == 'Pending' && employeeType == 'Chef'" (click)="prepareOrder(order)">Prepare</button>
                 <button class="btn action-btn btn-sm w-25 m-auto" *ngIf="order.OrderStatus == 'Preparing' && employeeType == 'Chef'" (click)="completeOrder(order)">Complete</button> -->
               </div>

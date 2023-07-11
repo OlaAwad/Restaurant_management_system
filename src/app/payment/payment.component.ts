@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 import { MatIconModule } from '@angular/material/icon'
 import { MatTabsModule } from '@angular/material/tabs'
+import { Router } from '@angular/router'
 import { Order, Product } from '@app/data-types'
 import { CartService } from '@app/services/cart.service'
 import { OrderService } from '@app/services/order.service'
@@ -22,6 +23,7 @@ export class PaymentComponent implements OnInit {
     private cartService: CartService,
     private orderService: OrderService,
     private productService: ProductsService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -201,7 +203,7 @@ export class PaymentComponent implements OnInit {
           document.getElementById('TableNo')
         ))?.value
   
-        let productIds = cartItems.map((item) => item.id)
+        // let productIds = cartItems.map((item) => item.id)
   
         let order: Order = {
           OrderType: this.selectedType,
@@ -264,7 +266,7 @@ export class PaymentComponent implements OnInit {
             // Update the available quantity of products
             cartItems.forEach((item) => {
               item.ProductAvailableQuantity -= item.ProductQuantity!
-              this.productService.updateProduct(item).subscribe()
+              this.productService.updateProductII(item.ProductId!, item).subscribe()
             })
             // Empty the cart and close the payment dialog
             this.cartService.clearCart()

@@ -6,6 +6,7 @@ import {
   EventEmitter,
   HostListener,
 } from '@angular/core'
+import { Router } from '@angular/router'
 import { SideNavToggle } from '@app/data-types'
 import { navbarData } from '@app/nav-data'
 import { EmployeeService } from '@app/services/employee.service'
@@ -45,7 +46,8 @@ export class SidenavComponent implements OnInit {
   navData = navbarData
   employeeType: string = ''
   filteredNavData: any[] =[]
-  constructor(private employeeService: EmployeeService) {}
+
+  constructor(private employeeService: EmployeeService, private router: Router) {}
 
   @HostListener('window: resize', ['$event'])
   onResize(event: any) {
@@ -60,6 +62,7 @@ export class SidenavComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.Collapsed = false
     this.ScreenWidth = window.innerWidth
     this.employeeService.employeeType$.subscribe((type) =>{
       console.log('type: ', type)
@@ -68,7 +71,6 @@ export class SidenavComponent implements OnInit {
         return data.employeeType.includes(type!)
       })
     })
-
 
   }
 
@@ -90,8 +92,17 @@ export class SidenavComponent implements OnInit {
 
   onNavItemClick(data: any){
     if(data.label === 'Logout'){
-      // console.log('logout clicked')
       this.employeeService.employeeLogout()
+      // console.log('logout')
+    }
+  }
+
+  employeeTypeExists(){
+    let employee = localStorage.getItem('employee')
+    if(employee){
+      return true
+    } else{
+      return false
     }
   }
 

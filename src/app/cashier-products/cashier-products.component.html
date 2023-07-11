@@ -1,75 +1,64 @@
-
-
+<div class="container-fluid d-flex flex-row justify-content-between" >
+<div class="col-lg-9 col-md-12">
+    
 <mat-tab-group class="w-100">
-    <mat-tab *ngFor="let cat of categories" label="{{ cat.CategoryName }}">
-      <div class="menu-container menu">
-       <div class="d-flex justify-content-center mt-4">
-        <form class="form-inline mb-2 d-flex searchForm">
-          <input
-            #searchInput
-            class="form-control mr-sm-2"
-            type="text"
-            placeholder="Search Products"
-            aria-label="Search"
-            (keyup)="searchProduct($event)"
-          />
-        </form>
-       </div>
-        <div class="row mt-3">
-          <div
-            class="col-lg-3 col-md-4"
-            *ngFor="let product of products | filterByCategory: cat"
-          >
-            <div class="card mb-4 text-center">
-              <figure>
-                <img src="{{ product.ProductImage }}" alt="Product-Image" />
-              </figure>
-              <section class="details">
-                <div class="min-details">
-                  <h3 class="prdName">{{ product.ProductName }}</h3>
-                  <h3 class="price">{{ product.ProductPrice }} EGP</h3>
-                </div>
-                <p class="availableQuantity">
-                  {{ product.ProductAvailableQuantity }}
-                  <span>{{ product.ProductCategory }} Available</span>
-                </p>
-                <!-- <button class="btn action-btn" (click)="addToCart(product)" [disabled]="!product.canAdd" [ngClass]="{'disabled-btn': !product.canAdd}">Add to Cart</button> -->
-                <button class="btn action-btn" (click)="addToCart(product)" >Add to Cart</button>
-              </section>
-            </div>
+  <mat-tab *ngFor="let cat of categories" label="{{ cat.CategoryName }}">
+    <div class="menu-container menu">
+     <div class="d-flex justify-content-center mt-4">
+      <form class="form-inline mb-2 d-flex searchForm">
+        <input
+          #searchInput
+          class="form-control mr-sm-2"
+          type="text"
+          placeholder="Search Products"
+          aria-label="Search"
+          (keyup)="searchProduct($event)"
+        />
+      </form>
+     </div>
+      <div class="row mt-3">
+        <div
+          class="col-lg-4 col-md-6"
+          *ngFor="let product of products | filterByCategory: cat"
+        >
+          <div class="card mb-4 text-center">
+            <figure>
+              <img src="{{ product.ProductImage }}" alt="Product-Image" />
+            </figure>
+            <section class="details">
+              <div class="min-details">
+                <h3 class="prdName">{{ product.ProductName }}</h3>
+                <h3 class="price">{{ product.ProductPrice }} EGP</h3>
+              </div>
+              <p class="availableQuantity">
+                {{ product.ProductAvailableQuantity }}
+                <span>{{ product.ProductCategory }} Available</span>
+              </p>
+              <!-- <button class="btn action-btn" (click)="addToCart(product)" [disabled]="!product.canAdd" [ngClass]="{'disabled-btn': !product.canAdd}">Add to Cart</button> -->
+              <button class="btn action-btn" (click)="addToCart(product)" >Add to Cart</button>
+            </section>
           </div>
         </div>
       </div>
-    </mat-tab>
-  </mat-tab-group>
- 
+    </div>
+  </mat-tab>
+</mat-tab-group>
+</div>
 
-  <!-- <div class="cart-toggle" (click)="isCartVisible = !isCartVisible">
-    <span class="cart-icon"></span>
-    <span class="cart-count"> {{cartItems.length}} </span>
-  </div> -->
 
-  <!-- <div class="cart-wrapper" *ngIf="isCartVisible" [@slideInFromLeft]="isCartVisible ? 'visible' : 'hidden'" [ngClass]="{'show-cart' : isCartVisible}">
+
+
+<div class="checkout-container col-lg-3 col-md-12">
+  <div class="cart-wrapper" *ngIf="!showPayment && isCartVisible" [@slideInFromLeft]="isCartVisible ? 'visible' : 'hidden'" [ngClass]="{'show-cart': isCartVisible}">
     <app-cart (close)="closeCart()"></app-cart>
-  </div> -->
-
-  <div class="checkout-container">
-    <div class="cart-wrapper" *ngIf="!showPayment && isCartVisible" [@slideInFromLeft]="isCartVisible ? 'visible' : 'hidden'" [ngClass]="{'show-cart': isCartVisible}">
-      <app-cart (close)="closeCart()"></app-cart>
-
-    </div>
-    <div class="payment-wrapper" *ngIf="showPayment" [@slideInFromLeft]="showPayment ? 'visible' : 'hidden'" [ngClass]="{'show-payment' : showPayment}">
-      <app-payment></app-payment>
-     
-    </div>
-
-    <!-- <div class="checkout-actions">
-      <button class="btn btn-action" *ngIf="!showPayment" (click)="continueToPayment()">
-        Continue to Payment
-      </button>
-      <button class="btn btn-action" *ngIf="showPayment" (click)="cancelPayment()">
-        Cancel Payment
-      </button>
-    </div> -->
 
   </div>
+  <div class="payment-wrapper" *ngIf="showPayment" [@slideInFromLeft]="showPayment ? 'visible' : 'hidden'" [ngClass]="{'show-payment' : showPayment}">
+    <app-payment></app-payment>
+   
+  </div>
+
+  
+
+</div>
+</div>

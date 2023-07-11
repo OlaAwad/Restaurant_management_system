@@ -117,9 +117,12 @@
       "ProductName": "Beef Sandwich",
       "ProductImage": "https://images.unsplash.com/photo-1604467707321-70d5ac45adda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80",
       "ProductPrice": 150,
-      "ProductAvailableQuantity": 23,
+      "ProductAvailableQuantity": 20,
       "ProductCategory": "Sandwich",
-      "id": 5
+      "id": 5,
+      "ProductId": 5,
+      "ProductQuantity": 3,
+      "ProductNotes": "spicy"
     },
     {
       "ProductName": "Chicken Meal",
@@ -144,10 +147,10 @@
       "ProductName": "Lentil soup",
       "ProductImage": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
       "ProductPrice": "50",
-      "ProductAvailableQuantity": 23,
+      "ProductAvailableQuantity": 11,
       "ProductCategory": "Soups",
       "ProductId": 8,
-      "ProductQuantity": 1
+      "ProductQuantity": 3
     },
     {
       "ProductName": "Mix Cheese Sandwich",
@@ -278,7 +281,7 @@
       "ProductPrice": "50",
       "TotalPrice": "290.00",
       "OrderDate": "2023-07-03T12:52:15.207Z",
-      "OrderStatus": "Pending",
+      "OrderStatus": "Completed",
       "Address": "jjj",
       "DeliveryFees": 40,
       "id": 7
@@ -291,7 +294,7 @@
       "ProductPrice": "50",
       "TotalPrice": "50.00",
       "OrderDate": "2023-07-04T08:57:17.279Z",
-      "OrderStatus": "Pending",
+      "OrderStatus": "Completed",
       "id": 8
     },
     {
@@ -488,6 +491,32 @@
       "OrderDate": "2023-07-05T14:08:32.767Z",
       "OrderStatus": "Pending",
       "id": 25
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Beef Sandwich",
+      "ProductQuantity": "3",
+      "ProductNotes": "spicy",
+      "ProductPrice": "150",
+      "TotalPrice": "450.00",
+      "OrderDate": "2023-07-08T08:00:15.534Z",
+      "OrderStatus": "Pending",
+      "CustomerName": "ola",
+      "CustomerMobile": 1231135,
+      "id": 26
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "3",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": "150.00",
+      "OrderDate": "2023-07-11T07:30:14.108Z",
+      "OrderStatus": "Completed",
+      "CustomerName": "Ola",
+      "CustomerMobile": 1212123,
+      "id": 27
     }
   ]
 }

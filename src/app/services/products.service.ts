@@ -71,7 +71,7 @@ constructor(private http: HttpClient, private categoriesService: CategoriesServi
       map((updatedProduct) => {
         let index = this.products.findIndex((p) => p.id === updatedProduct.id)
         if(index !== -1){
-          this.products[index] = updatedProduct
+          // this.products[index] = updatedProduct
           this.products$.next(this.products)
         }
         return updatedProduct

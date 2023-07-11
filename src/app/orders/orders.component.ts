@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Order } from '@app/data-types';
 import { EmployeeService } from '@app/services/employee.service';
 import { OrderService } from '@app/services/order.service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 
 @Component({
   selector: 'app-orders',
@@ -16,6 +16,7 @@ export class OrdersComponent implements OnInit {
   preparingOrders$ = new BehaviorSubject<Order[]>([])
   completedOrders$ = new BehaviorSubject<Order[]>([])
   employeeType: string = ''
+  isChef: boolean = false
 
 
   constructor(private orderService: OrderService, private employeeService: EmployeeService) { }
@@ -26,12 +27,26 @@ export class OrdersComponent implements OnInit {
   }
 
   getOrders(){
-    this.orderService.getOrders().subscribe((orders: Order[]) => {
-      this.orders = orders
-      this.pendingOrders$.next(orders.filter((order) => order.OrderStatus === 'Pending'))  
-      this.preparingOrders$.next(orders.filter((order) => order.OrderStatus === 'Preparing')) 
-      this.completedOrders$.next(orders.filter((order) => order.OrderStatus === 'Completed')) 
+    let currentTime = new Date().getTime()
+    let lastHourTime = currentTime - (60 * 60 * 1000)
+
+    this.orderService.getOrders().pipe(
+      map((orders: Order[]) => orders.filter((order) => {
+        let orderTime = new Date(order.OrderDate).getTime()
+        return orderTime >= lastHourTime
+      }))
+    ).subscribe((filteredOrders: Order[]) => {
+      this.orders = filteredOrders
+      this.pendingOrders$.next(this.orders.filter((order) => order.OrderStatus === 'Pending'))  
+        this.preparingOrders$.next(this.orders.filter((order) => order.OrderStatus === 'Preparing')) 
+        this.completedOrders$.next(this.orders.filter((order) => order.OrderStatus === 'Completed')) 
     })
+    
+    // this.orderService.getOrders().subscribe((orders: Order[]) => {
+    //   this.pendingOrders$.next(orders.filter((order) => order.OrderStatus === 'Pending'))  
+    //   this.preparingOrders$.next(orders.filter((order) => order.OrderStatus === 'Preparing')) 
+    //   this.completedOrders$.next(orders.filter((order) => order.OrderStatus === 'Completed')) 
+    // })
   }
 
   prepareOrder(order: Order){
@@ -55,9 +70,20 @@ export class OrdersComponent implements OnInit {
 
   getEmployeeType(){
     this.employeeService.employeeType$.subscribe(type =>{
-      // console.log('type:', type)
+      console.log('type:', type)
       this.employeeType = type!
+      this.checkIfChef()
     })
   }
+
+  checkIfChef(){
+    if(this.employeeType == 'Chef'){
+      this.isChef = true
+    } else{
+      this.isChef = false
+    }
+  }
+
+  
 
 }

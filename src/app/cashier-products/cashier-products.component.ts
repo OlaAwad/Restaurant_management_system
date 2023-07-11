@@ -65,9 +65,6 @@ export class CashierProductsComponent implements OnInit {
   }
 
   getProducts(){
-    // this.productsService.getProducts().subscribe((products) => {
-    //   this.products = products
-    // })
     this.productsService.products$.subscribe((products) => {
       this.products = products
     })

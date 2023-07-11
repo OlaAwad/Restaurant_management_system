@@ -1,6 +1,3 @@
-<!-- <i class="fa-solid fa-house"></i> -->
-<!-- <i class="fa-solid fa-utensils"></i> -->
-
 <div class="sidenav" [ngClass]="Collapsed ? 'sidenav-collapsed':''">
     <div class="logo-container">
       <button class="logo" (click)="toggleCollapse()">R</button>
@@ -12,7 +9,7 @@
     <ul class="sidenav-nav">
       <!-- <div class="w-100" > -->
         <li class="sidenav-nav-item" *ngFor="let data of filteredNavData">
-          <a class="sidenav-nav-link" [routerLink]="[data.routerLink]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="onNavItemClick(data)">
+          <a class="sidenav-nav-link" [routerLink]="[data.routerLink]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="onNavItemClick(data)" *ngIf="employeeTypeExists()">
             <i class="sidenav-link-icon" [class]="data.icon"></i>
             <span class="sidenav-link-text" @fadeInOut *ngIf="Collapsed"> {{data.label}} </span>
           </a>

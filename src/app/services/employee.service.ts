@@ -30,6 +30,12 @@ export class EmployeeService {
     localStorage.setItem('EmployeeType', employeeType)
     this.employeeTypeSubject.next(employeeType)
    }
+   
+  // getEmployeeType(){
+  //   let empType = localStorage.getItem('EmployeeType')
+  //   console.log('empType: ', empType)
+  //   return empType
+  // }
 
   employeeSignUp(data: SignUp){
     return this.http.post<SignUp>(`${this.apiUrl}/Employees`, data)
@@ -64,6 +70,7 @@ export class EmployeeService {
 
   employeeLogout(){
     localStorage.removeItem('employee')
+    localStorage.removeItem('EmployeeType')
     // this.router.navigate(['/employee-auth']);
     // (window as any).ngRef.instance.onLogout()
   }
