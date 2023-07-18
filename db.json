@@ -117,11 +117,11 @@
       "ProductName": "Beef Sandwich",
       "ProductImage": "https://images.unsplash.com/photo-1604467707321-70d5ac45adda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80",
       "ProductPrice": 150,
-      "ProductAvailableQuantity": 20,
+      "ProductAvailableQuantity": 19,
       "ProductCategory": "Sandwich",
       "id": 5,
       "ProductId": 5,
-      "ProductQuantity": 3,
+      "ProductQuantity": 1,
       "ProductNotes": "spicy"
     },
     {
@@ -147,7 +147,7 @@
       "ProductName": "Lentil soup",
       "ProductImage": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
       "ProductPrice": "50",
-      "ProductAvailableQuantity": 11,
+      "ProductAvailableQuantity": 8,
       "ProductCategory": "Soups",
       "ProductId": 8,
       "ProductQuantity": 3
@@ -156,9 +156,11 @@
       "ProductName": "Mix Cheese Sandwich",
       "ProductImage": "https://images.unsplash.com/photo-1528736235302-52922df5c122?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=954&q=80",
       "ProductPrice": 40,
-      "ProductAvailableQuantity": 30,
+      "ProductAvailableQuantity": 29,
       "ProductCategory": "Sandwich",
-      "id": 9
+      "id": 9,
+      "ProductId": 9,
+      "ProductQuantity": 1
     },
     {
       "id": 10,
@@ -193,7 +195,18 @@
       "id": 13
     }
   ],
-  "Cart": [],
+  "Cart": [
+    {
+      "id": 3628218955,
+      "ProductName": "Lentil soup",
+      "ProductImage": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "ProductPrice": "50",
+      "ProductAvailableQuantity": 8,
+      "ProductCategory": "Soups",
+      "ProductId": 8,
+      "ProductQuantity": 8
+    }
+  ],
   "Orders": [
     {
       "OrderType": "To Go",
@@ -517,6 +530,47 @@
       "CustomerName": "Ola",
       "CustomerMobile": 1212123,
       "id": 27
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Mix Cheese Sandwich, Beef Sandwich, Lentil soup",
+      "ProductQuantity": "1, 1, 3",
+      "ProductNotes": ", spicy, ",
+      "ProductPrice": "40, 150, 50",
+      "TotalPrice": "340.00",
+      "OrderDate": "2023-07-16T06:34:58.672Z",
+      "OrderStatus": "Pending",
+      "CustomerName": "Ola Awad",
+      "CustomerMobile": 123545342,
+      "id": 28
+    },
+    {
+      "OrderType": "Dine in",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "5",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": 285,
+      "OrderDate": "2023-07-16T15:50:13.270Z",
+      "OrderStatus": "Pending",
+      "CustomerName": "Ahmed",
+      "CustomerMobile": 2131532,
+      "TableNo": 15,
+      "ServiceFees": 0.14,
+      "id": 29
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup, Garlic Soup",
+      "ProductQuantity": "1, 1",
+      "ProductNotes": ", ",
+      "ProductPrice": "50, 50",
+      "TotalPrice": 100,
+      "OrderDate": "2023-07-18T12:25:35.292Z",
+      "OrderStatus": "Pending",
+      "CustomerName": "Ola",
+      "CustomerMobile": 1321231,
+      "id": 30
     }
   ]
 }

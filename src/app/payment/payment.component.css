@@ -100,3 +100,6 @@ mat-tab-label.mat-tab-label-active{
 .payment-footer .cancel, .payment-footer .submit{
     width: 45%;
 }
+.wrong-amount{
+    color: var(--danger);
+}
