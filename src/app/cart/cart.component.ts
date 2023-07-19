@@ -61,6 +61,14 @@ export class CartComponent implements OnInit {
     if((item.ProductQuantity)! > item.ProductAvailableQuantity){
       item.ProductQuantity = item.ProductAvailableQuantity
     } 
+    if((item.ProductQuantity)! < 0){
+      item.ProductQuantity = 1
+    }
+    if(item.ProductQuantity == 0){
+      setTimeout(()=>{
+        this.removeItem(item)
+      }, 500)
+    }
   }
 
   closeCart(){
