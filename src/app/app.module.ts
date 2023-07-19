@@ -35,6 +35,11 @@ import { FilterByCategoryPipe } from './pipes/filter-by-category.pipe';
 import { CartComponent } from './cart/cart.component';
 import { CashierProductsComponent } from './cashier-products/cashier-products.component';
 import { PaymentComponent } from './payment/payment.component';
+import { MatRadioModule } from '@angular/material/radio'
+import { MatInputModule } from '@angular/material/input'
+import { MatFormFieldModule } from '@angular/material/form-field'
+
+
 
 @NgModule({
   declarations: [
@@ -74,7 +79,10 @@ import { PaymentComponent } from './payment/payment.component';
     MatIconModule,
     MatDividerModule,
     NgbModule,
-    MatTabsModule
+    MatTabsModule,
+    MatRadioModule,
+    MatInputModule,
+    MatButtonModule
     ],
   providers: [NgbActiveModal  ],
   bootstrap: [AppComponent]

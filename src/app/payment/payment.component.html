@@ -5,109 +5,7 @@
     </h2>
     <hr />
   </div>
-  <div class="paymentMethod">
-    <!-- <div class="d-flex justify-content-around">
-            <div class="method">
-                <p><i class="fa-solid fa-credit-card fa-xl"></i></p>
-                <p>Credit Card</p>
-            </div>
-            <div class="method">
-                <p><i class="fa-solid fa-wallet fa-xl"></i></p>
-                <p>Cash</p>
-            </div>
-        </div> -->
-    <!-- <mat-tab-group [(selectedIndex)]="selectedMethodIndex">
-      <mat-tab>
-        <ng-template mat-tab-label class="method">
-          <p><i class="fa-solid fa-credit-card fa-xl"></i></p>
-          <p>Credit Card</p>
-        </ng-template>
-   
-        <form
-          #debitCardData="ngForm"
-          class="d-flex flex-column align-items-center"
-          *ngIf="selectedMethodIndex === 0"
-        >
-          <div class="form-group">
-            <label for="CardholderName">Cardholder Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="CardholderName"
-              name="CardholderName"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="CardNumber">CardNumber</label>
-            <input
-              type="number"
-              class="form-control"
-              id="CardNumber"
-              name="CardNumber"
-              required
-            />
-          </div>
-          <div class="form-group d-flex justify-content-between cardData">
-            <div>
-              <label for="ExpirationDate">Expiration Date</label>
-              <input
-                type="date"
-                class="form-control expDate"
-                id="ExpirationDate"
-                name="ExpirationDate"
-                required
-              />
-            </div>
-            <div>
-              <label for="CVV">CVV</label>
-              <input
-                type="number"
-                class="form-control cvv"
-                id="CVV"
-                name="CVV"
-                required
-              />
-            </div>
-          </div>
-          <hr class="line" />
-        </form>
-      </mat-tab>
-
-      <mat-tab>
-        <ng-template mat-tab-label class="method">
-          <p><i class="fa-solid fa-wallet fa-xl"></i></p>
-          <p>Cash</p>
-        </ng-template>
-        <form
-          #cashData="ngForm"
-          class="d-flex flex-column align-items-center"
-          *ngIf="selectedMethodIndex === 1"
-        >
-          <div class="form-group">
-            <label for="CustomerName">Customer Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="CustomerName"
-              name="CustomerName"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="CustomerMobile">Customer Mobile</label>
-            <input
-              type="number"
-              class="form-control"
-              id="CustomerMobile"
-              name="CustomerMobile"
-            />
-          </div>
-          <hr class="line" />
-        </form>
-      </mat-tab>
-    </mat-tab-group> -->
-
+  <div class="paymentMethod">   
     <form #paymentForm="ngForm" class="d-flex flex-column align-items-center">
       <div class="form-group">
         <label for="CustomerName">Customer Name</label>
@@ -152,6 +50,7 @@
           </a>
         </div>
       </div>
+    
     </div>
     <div class="tableNo w-50 align-self-start" *ngIf="selectedType == 'Dine in'">
       <div class="form-group">
@@ -170,48 +69,33 @@
         ></textarea>
       </div>
     </div>
+    <div *ngIf="totalPrice">
+      <h3>Total Price: {{ totalPrice }}</h3>
+    </div>
     <!-- </div> -->
     <h3 class="mb-0 mt-2">Payment Method</h3>
-      <mat-tab-group [(selectedIndex)]="selectedMethodIndex">
-        <mat-tab label="Debit Card">
-          <form
-            #debitForm="ngForm"
-            class="d-flex flex-column align-items-center"
-          >
-            <div class="form-group mt-2">
-              <label for="DebitPaidAmount">Paid Amount</label>
-              <input
-                type="number"
-                class="form-control"
-                id="DebitPaidAmount"
-                name="DebitPaidAmount"
-                required
-                [(ngModel)]="paymentDetails.paidAmount.debit"
-                (input)="calculateCashAmount()"
-              />
-            </div>
-          </form>
-        </mat-tab>
-        <mat-tab label="Cash">
-          <form
-            #cashForm="ngForm"
-            class="d-flex flex-column align-items-center"
-          >
-            <div class="form-group mt-2">
-              <label for="CashPaidAmount">Paid Amount</label>
-              <input
-                type="number"
-                class="form-control"
-                name="CashPaidAmount"
-                id="CashPaidAmount"
-                required
-                [(ngModel)]="paymentDetails.paidAmount.cash"
-              />
-            </div>
-          </form>
-        </mat-tab>
-      </mat-tab-group>
-      <div class="wrong-amount" *ngIf="wrongPaidAmount">Wrong Paid Amount </div>
+     
+
+      <div>
+        <label for="cash">
+          <input type="checkbox" id="cash" name="paymentMethod" [(ngModel)]="paymentMethod.cash" (change)="calculatePaidAmount()"> cash
+        </label>
+        <label for="debit">
+          <input type="checkbox" id="debit" name="paymentMethod" [(ngModel)]="paymentMethod.debit" (change)="calculatePaidAmount()">Debit
+        </label>
+      </div>
+
+      <div *ngIf="paymentMethod.cash">
+        <input matInput type="number" class="form-control mb-2" name="cashPaidAmount" [(ngModel)]="paymentDetails.paidAmount.cash" (input)="calculatePaidAmount()" placeholder="Enter paid amount with cash">
+      </div>
+      <div *ngIf="paymentMethod.debit">
+        <input matInput type="number" class="form-control" name="debitPaidAmount" [(ngModel)]="paymentDetails.paidAmount.debit" (input)="calculatePaidAmount()" placeholder="Enter paid amount with debit card">
+      </div>
+
+   
+
+      
+      <div class="wrong-amount" *ngIf="wrongPaidAmount">The paid amount is incorrect! </div>
     </form>
     
   </div>
@@ -231,6 +115,8 @@
       [disabled]="!isFormValid()"
       id="confirmPaymentButton"
     >
+    
+  
       Confirm Payment
     </button>
   </div>

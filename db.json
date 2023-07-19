@@ -197,14 +197,14 @@
   ],
   "Cart": [
     {
-      "id": 3628218955,
-      "ProductName": "Lentil soup",
-      "ProductImage": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
-      "ProductPrice": "50",
-      "ProductAvailableQuantity": 8,
+      "ProductName": "Garlic Soup",
+      "ProductImage": "https://images.unsplash.com/photo-1611745451987-bd5df5565d9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=821&q=80",
+      "ProductPrice": 50,
+      "ProductAvailableQuantity": 23,
       "ProductCategory": "Soups",
-      "ProductId": 8,
-      "ProductQuantity": 8
+      "id": 1667504810,
+      "ProductId": 7,
+      "ProductQuantity": 1
     }
   ],
   "Orders": [
@@ -571,6 +571,90 @@
       "CustomerName": "Ola",
       "CustomerMobile": 1321231,
       "id": 30
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup, Garlic Soup",
+      "ProductQuantity": "6, 1",
+      "ProductNotes": ", ",
+      "ProductPrice": "50, 50",
+      "TotalPrice": 350,
+      "OrderDate": "2023-07-19T12:16:03.157Z",
+      "OrderStatus": "Pending",
+      "CustomerName": "Ola Awad",
+      "CustomerMobile": 1140541467,
+      "id": 31
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "7",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": 350,
+      "OrderDate": "2023-07-19T12:55:37.338Z",
+      "OrderStatus": "Completed",
+      "CustomerName": "Ola",
+      "CustomerMobile": 12312313,
+      "id": 32
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "2",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": 100,
+      "OrderDate": "2023-07-19T12:57:42.633Z",
+      "OrderStatus": "Completed",
+      "CustomerName": "Ola",
+      "CustomerMobile": 12132123,
+      "id": 33
+    },
+    {
+      "OrderType": "Dine in",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "3",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": 171,
+      "OrderDate": "2023-07-19T13:16:40.538Z",
+      "OrderStatus": "Completed",
+      "CustomerName": "Ola",
+      "CustomerMobile": 12132,
+      "TableNo": 12,
+      "ServiceFees": 0.14,
+      "id": 34
+    },
+    {
+      "OrderType": "Delivery",
+      "ProductName": "Lentil soup, Garlic Soup",
+      "ProductQuantity": "1, 4",
+      "ProductNotes": ", ",
+      "ProductPrice": "50, 50",
+      "TotalPrice": 290,
+      "OrderDate": "2023-07-19T13:17:53.178Z",
+      "OrderStatus": "Completed",
+      "CustomerName": "Ola",
+      "CustomerMobile": 321153,
+      "Address": "Elsheikh Zayed",
+      "DeliveryFees": 40,
+      "id": 35
+    },
+    {
+      "OrderType": "Dine in",
+      "ProductName": "Lentil soup, Chicken Meal, Chicken BBQ Pizza, Mix Cheese Sandwich",
+      "ProductQuantity": "1, 1, 1, 2",
+      "ProductNotes": ", , , ",
+      "ProductPrice": "50, 200, 125, 40",
+      "TotalPrice": 518.7,
+      "OrderDate": "2023-07-19T13:20:28.105Z",
+      "OrderStatus": "Pending",
+      "CustomerName": "Ola",
+      "CustomerMobile": 12132,
+      "TableNo": 3,
+      "ServiceFees": 0.14,
+      "id": 36
     }
   ]
 }
