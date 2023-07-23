@@ -49,7 +49,7 @@ export class AppComponent {
     //     this.isEmployeeAuth = false
     //   }
 
-    //   if(this.router.url.includes('/authentication')){
+    //   if(this.router.url.includes('/employeeType')){
     //     this.isEntryPoint = true
     //   } else{
     //     this.isEntryPoint = false

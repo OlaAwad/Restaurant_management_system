@@ -197,7 +197,18 @@
       "id": 13
     }
   ],
-  "Cart": [],
+  "Cart": [
+    {
+      "id": 2726404094,
+      "ProductName": "Lentil soup",
+      "ProductImage": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "ProductPrice": "50",
+      "ProductAvailableQuantity": 5,
+      "ProductCategory": "Soups",
+      "ProductId": 8,
+      "ProductQuantity": 2
+    }
+  ],
   "Orders": [
     {
       "OrderType": "To Go",
@@ -698,7 +709,7 @@
       "ProductPrice": "50, 50",
       "TotalPrice": 100,
       "OrderDate": "2023-07-23T07:28:49.654Z",
-      "OrderStatus": "Pending",
+      "OrderStatus": "Completed",
       "CustomerName": "Ola",
       "CustomerMobile": 1215152,
       "id": 40
@@ -711,7 +722,7 @@
       "ProductPrice": "50",
       "TotalPrice": 50,
       "OrderDate": "2023-07-23T07:30:22.470Z",
-      "OrderStatus": "Pending",
+      "OrderStatus": "Preparing",
       "CustomerName": "Ola",
       "CustomerMobile": 2132,
       "id": 41

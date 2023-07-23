@@ -14,8 +14,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'authentication', pathMatch: 'full'},
-  {path: 'authentication', component: EntryPointComponent},
+  {path: '', redirectTo: 'employeeType', pathMatch: 'full'},
+  {path: 'employeeType', component: EntryPointComponent},
   {path: 'categories', component: CategoriesComponent, canActivate:[AuthGuard], data: {employeeType: 'Admin'}},
   {path: 'products', component: ProductsComponent, canActivate: [AuthGuard], data: {employeeType: 'Admin'}},
   {path: 'orders', component: OrdersComponent, canActivate: [AuthGuard], data: {employeeType: 'Admin,Chef,Cashier'}},

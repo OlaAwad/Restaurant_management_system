@@ -24,7 +24,7 @@ export class AuthGuard implements CanActivate {
         return true
       } else{
         // console.log('wrong data')
-        this.router.navigate(['/authentication'])
+        this.router.navigate(['/employeeType'])
         return false
       }
 

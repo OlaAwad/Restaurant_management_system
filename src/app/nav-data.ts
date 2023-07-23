@@ -42,7 +42,7 @@ export const navbarData = [
         employeeType: 'Admin'
     },
     {
-        routerLink: 'authentication',
+        routerLink: 'employeeType',
         icon:'fa-solid fa-arrow-right-from-bracket',
         label: 'Logout',
         employeeType: 'Admin, Cashier, Chef'
