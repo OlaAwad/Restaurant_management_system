@@ -11,19 +11,20 @@ import { PaymentComponent } from './payment/payment.component';
 import { ProductsComponent } from './products/products.component';
 import { SalesComponent } from './sales/sales.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'authentication', pathMatch: 'full'},
   {path: 'authentication', component: EntryPointComponent},
-  {path: 'categories', component: CategoriesComponent},
-  {path: 'products', component: ProductsComponent},
-  {path: 'orders', component: OrdersComponent},
-  {path: 'sales', component: SalesComponent},
-  {path: 'settings', component: SettingsComponent},
-  {path: 'employees', component: EmployeesComponent},
+  {path: 'categories', component: CategoriesComponent, canActivate:[AuthGuard], data: {employeeType: 'Admin'}},
+  {path: 'products', component: ProductsComponent, canActivate: [AuthGuard], data: {employeeType: 'Admin'}},
+  {path: 'orders', component: OrdersComponent, canActivate: [AuthGuard], data: {employeeType: 'Admin,Chef,Cashier'}},
+  {path: 'sales', component: SalesComponent, canActivate: [AuthGuard], data: {employeeType: 'Admin'}},
+  {path: 'settings', component: SettingsComponent, canActivate: [AuthGuard], data: {employeeType: 'Admin'}},
+  {path: 'employees', component: EmployeesComponent, canActivate: [AuthGuard], data: {employeeType: 'Admin'}},
   {path: 'employee-auth', component: EmployeeAuthComponent},
-  {path: 'cashierProducts', component: CashierProductsComponent},
-  {path: 'payment', component: PaymentComponent}
+  {path: 'cashierProducts', component: CashierProductsComponent, canActivate: [AuthGuard], data: {employeeType: 'Cashier'}},
+  {path: 'payment', component: PaymentComponent, canActivate: [AuthGuard], data: {employeeType: 'Cashier'}}
   // {path: 'home', component: HomeComponent},
   
 ];

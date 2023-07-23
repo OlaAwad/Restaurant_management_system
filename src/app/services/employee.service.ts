@@ -94,4 +94,9 @@ export class EmployeeService {
   searchEmployee(query: string){
     return this.http.get<SignUp[]>(`${this.apiUrl}/Employees?q=${query}`)
   }
+
+  getCurrentUser(){
+    let user = localStorage.getItem('employee')
+    return JSON.parse(user!)
+  }
 }
