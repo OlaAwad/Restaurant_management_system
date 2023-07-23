@@ -16,14 +16,14 @@ export class AuthGuard implements CanActivate {
 
       const currentUser = this.employeeService.getCurrentUser()
 
-      console.log('requiredEmployeeTypes: ', requiredEmployeeTypes)
-      console.log('currentUser: ', currentUser)      
+      // console.log('requiredEmployeeTypes: ', requiredEmployeeTypes)
+      // console.log('currentUser: ', currentUser)      
 
       if(currentUser && requiredEmployeeTypes.includes(currentUser[0].EmployeeType)){
-        console.log('Right data')
+        // console.log('Right data')
         return true
       } else{
-        console.log('wrong data')
+        // console.log('wrong data')
         this.router.navigate(['/authentication'])
         return false
       }
