@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, OnInit, ViewEncapsulation, ChangeDetectorRef } from '@angular/core'
 import { MatIconModule } from '@angular/material/icon'
 import { MatTabsModule } from '@angular/material/tabs'
 import { Router } from '@angular/router'
@@ -66,7 +66,8 @@ export class PaymentComponent implements OnInit {
     private cartService: CartService,
     private orderService: OrderService,
     private productService: ProductsService,
-    private router: Router
+    private router: Router,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -102,7 +103,8 @@ export class PaymentComponent implements OnInit {
       !this.paymentDetails.CustomerMobile || 
       (this.selectedType === 'Delivery' && !this.paymentDetails.deliveryAddress) || 
       (this.selectedType === 'Dine in' && !this.paymentDetails.dineInTableNo) ||
-      this.wrongPaidAmount
+      this.wrongPaidAmount || 
+      (this.totalPrice && (!this.paymentMethod.cash && !this.paymentMethod.debit))
       ){
         return false
       }
@@ -145,11 +147,15 @@ export class PaymentComponent implements OnInit {
         this.orderService.saveOrder(order).subscribe((savedOrder) => {
           console.log('order: ', savedOrder)
 
-          //update available quantity:
-          // cartItems.forEach((item) => {
-          //   item.ProductAvailableQuantity -= item.ProductQuantity ?? 0
-          //   this.productService.updateProduct(item).subscribe()
-          // })
+          // update available quantity:
+          cartItems.forEach((item) => {
+            console.log('item: ', item)
+            item.ProductAvailableQuantity -= item.ProductQuantity ?? 0
+            this.productService.updateProduct(item).subscribe((updatedProduct) => {
+              item.ProductAvailableQuantity = updatedProduct.ProductAvailableQuantity
+              // this.cdr.detectChanges()
+            })
+          })
 
           //Empty cart and close dialog:
           this.cartService.clearCart()

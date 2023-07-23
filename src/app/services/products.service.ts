@@ -50,7 +50,18 @@ constructor(private http: HttpClient, private categoriesService: CategoriesServi
   }
 
   updateProduct(product: Product){
-    return this.http.put<Product>(`${this.apiUrl}/Products/${product.id}`, product)
+    return this.http.put<Product>(`${this.apiUrl}/Products/${product.ProductId}`, product).pipe(
+      tap((updatedProduct) => {
+        const updatedProducts = this.products.map((p) => {
+          if(p.ProductId === updatedProduct.ProductId){
+            return updatedProduct
+          }
+          return p
+        })
+        this.products = updatedProducts
+        this.products$.next(this.products)
+      })
+    )
   }
 
   deleteProduct(productId: number){
