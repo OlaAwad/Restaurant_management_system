@@ -195,28 +195,7 @@
       "id": 13
     }
   ],
-  "Cart": [
-    {
-      "id": 289585675,
-      "ProductName": "Lentil soup",
-      "ProductImage": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
-      "ProductPrice": "50",
-      "ProductAvailableQuantity": 8,
-      "ProductCategory": "Soups",
-      "ProductId": 8,
-      "ProductQuantity": 3
-    },
-    {
-      "ProductName": "Garlic Soup",
-      "ProductImage": "https://images.unsplash.com/photo-1611745451987-bd5df5565d9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=821&q=80",
-      "ProductPrice": 50,
-      "ProductAvailableQuantity": 23,
-      "ProductCategory": "Soups",
-      "id": 865615101,
-      "ProductId": 7,
-      "ProductQuantity": 1
-    }
-  ],
+  "Cart": [],
   "Orders": [
     {
       "OrderType": "To Go",
@@ -665,6 +644,21 @@
       "TableNo": 3,
       "ServiceFees": 0.14,
       "id": 36
+    },
+    {
+      "OrderType": "Dine in",
+      "ProductName": "Garlic Soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": 57,
+      "OrderDate": "2023-07-23T07:23:43.299Z",
+      "OrderStatus": "Completed",
+      "CustomerName": "Ola",
+      "CustomerMobile": 1215312,
+      "TableNo": 12,
+      "ServiceFees": 0.14,
+      "id": 37
     }
   ]
 }

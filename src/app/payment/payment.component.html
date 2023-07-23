@@ -76,12 +76,12 @@
     <h3 class="mb-0 mt-2">Payment Method</h3>
      
 
-      <div>
-        <label for="cash">
-          <input type="checkbox" id="cash" name="paymentMethod" [(ngModel)]="paymentMethod.cash" (change)="calculatePaidAmount()"> cash
+      <div class="d-flex flex-column">
+        <label for="cash" class="mr-2">
+          <input type="checkbox" id="cash" name="paymentMethod" [(ngModel)]="paymentMethod.cash" (change)="calculatePaidAmount()" class="mr-1"> Cash
         </label>
         <label for="debit">
-          <input type="checkbox" id="debit" name="paymentMethod" [(ngModel)]="paymentMethod.debit" (change)="calculatePaidAmount()">Debit
+          <input type="checkbox" id="debit" name="paymentMethod" [(ngModel)]="paymentMethod.debit" (change)="calculatePaidAmount()" class="mr-1">Debit Card
         </label>
       </div>
 
@@ -92,10 +92,7 @@
         <input matInput type="number" class="form-control" name="debitPaidAmount" [(ngModel)]="paymentDetails.paidAmount.debit" (input)="calculatePaidAmount()" placeholder="Enter paid amount with debit card">
       </div>
 
-   
-
-      
-      <div class="wrong-amount" *ngIf="wrongPaidAmount">The paid amount is incorrect! </div>
+      <div class="wrong-amount" *ngIf="wrongPaidAmount && (paymentDetails.paidAmount.cash || paymentDetails.paidAmount.debit)">The paid amount is incorrect! </div>
     </form>
     
   </div>
