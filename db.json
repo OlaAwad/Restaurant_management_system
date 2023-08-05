@@ -136,7 +136,7 @@
       "ProductName": "Garlic Soup",
       "ProductImage": "https://images.unsplash.com/photo-1611745451987-bd5df5565d9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=821&q=80",
       "ProductPrice": 50,
-      "ProductAvailableQuantity": 17,
+      "ProductAvailableQuantity": 15,
       "ProductCategory": "Soups",
       "id": 7,
       "ProductId": 7,
@@ -147,7 +147,7 @@
       "ProductName": "Lentil soup",
       "ProductImage": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
       "ProductPrice": "50",
-      "ProductAvailableQuantity": 5,
+      "ProductAvailableQuantity": 2,
       "ProductCategory": "Soups",
       "ProductId": 8,
       "ProductQuantity": 1
@@ -174,19 +174,22 @@
       "ProductName": "Chicken BBQ Pizza",
       "ProductImage": "https://images.unsplash.com/photo-1655471264223-b07ce84d521c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=511&q=80",
       "ProductPrice": 125,
-      "ProductAvailableQuantity": 23,
+      "ProductAvailableQuantity": 20,
       "ProductCategory": "Pizza",
       "id": 11,
       "ProductId": 11,
-      "ProductQuantity": 1
+      "ProductQuantity": 3,
+      "ProductNotes": "spicy"
     },
     {
       "ProductName": "Mix Cheese Pizza",
       "ProductImage": "https://images.unsplash.com/photo-1536194309363-677b2608a921?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "ProductPrice": 95,
-      "ProductAvailableQuantity": 23,
+      "ProductAvailableQuantity": 22,
       "ProductCategory": "Pizza",
-      "id": 12
+      "id": 12,
+      "ProductId": 12,
+      "ProductQuantity": 1
     },
     {
       "ProductName": "Beef Burger Sandwich",
@@ -199,14 +202,14 @@
   ],
   "Cart": [
     {
-      "id": 2726404094,
+      "id": 3459832068,
       "ProductName": "Lentil soup",
       "ProductImage": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
       "ProductPrice": "50",
-      "ProductAvailableQuantity": 5,
+      "ProductAvailableQuantity": 2,
       "ProductCategory": "Soups",
       "ProductId": 8,
-      "ProductQuantity": 2
+      "ProductQuantity": 1
     }
   ],
   "Orders": [
@@ -821,6 +824,88 @@
       "CustomerName": "Ola",
       "CustomerMobile": 12132,
       "id": 48
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": 50,
+      "OrderDate": "2023-07-23T09:45:39.148Z",
+      "OrderStatus": "Completed",
+      "CustomerName": "Ola",
+      "CustomerMobile": 1231,
+      "id": 49
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Chicken BBQ Pizza, Mix Cheese Pizza",
+      "ProductQuantity": "3, 1",
+      "ProductNotes": "spicy, ",
+      "ProductPrice": "125, 95",
+      "TotalPrice": 470,
+      "OrderDate": "2023-07-23T09:52:53.414Z",
+      "OrderStatus": "Pending",
+      "CustomerName": "Ola",
+      "CustomerMobile": 12532,
+      "id": 50
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": 50,
+      "OrderDate": "2023-07-29T10:06:29.576Z",
+      "OrderStatus": "Completed",
+      "CustomerName": "Ola",
+      "CustomerMobile": 123152,
+      "id": 51
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Garlic Soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": 50,
+      "OrderDate": "2023-08-05T08:50:08.126Z",
+      "OrderStatus": "Completed",
+      "CustomerName": "Ola",
+      "CustomerMobile": 336582495,
+      "id": 52
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Lentil soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": 50,
+      "OrderDate": "2023-08-05T08:53:48.525Z",
+      "OrderStatus": "Completed",
+      "CustomerName": "ali",
+      "CustomerMobile": 2102,
+      "id": 53,
+      "ProcessDate": "2023-08-05T08:54:26.077Z",
+      "CompleteDate": "2023-08-05T08:54:56.773Z"
+    },
+    {
+      "OrderType": "To Go",
+      "ProductName": "Garlic Soup",
+      "ProductQuantity": "1",
+      "ProductNotes": "",
+      "ProductPrice": "50",
+      "TotalPrice": 50,
+      "OrderDate": "2023-08-05T08:54:01.517Z",
+      "OrderStatus": "Completed",
+      "CustomerName": "Ola Awad",
+      "CustomerMobile": 1231,
+      "id": 54,
+      "ProcessDate": "2023-08-05T08:55:03.996Z",
+      "CompleteDate": "2023-08-05T08:55:05.644Z"
     }
   ]
 }

@@ -32,7 +32,7 @@ export class OrdersComponent implements OnInit {
 
     this.orderService.getOrders().pipe(
       map((orders: Order[]) => orders.filter((order) => {
-        let orderTime = new Date(order.OrderDate).getTime()
+        let orderTime = new Date(order.OrderDate!).getTime()
         return orderTime >= lastHourTime
       }))
     ).subscribe((filteredOrders: Order[]) => {
@@ -50,7 +50,7 @@ export class OrdersComponent implements OnInit {
   }
 
   prepareOrder(order: Order){
-    let updatedOrder = {...order, OrderStatus: 'Preparing'}
+    let updatedOrder = {...order, OrderStatus: 'Preparing', ProcessDate: new Date()}
     this.orderService.updateOrder(updatedOrder).subscribe(() => {
       let pendingOrders = this.pendingOrders$.value.filter((o) => o.id !== order.id)
       this.pendingOrders$.next(pendingOrders)
@@ -60,7 +60,7 @@ export class OrdersComponent implements OnInit {
   }
 
   completeOrder(order: Order){
-    let updatedOrder = {...order, OrderStatus:'Completed'}
+    let updatedOrder = {...order, OrderStatus:'Completed', CompleteDate: new Date()}
     this.orderService.updateOrder(updatedOrder).subscribe(() => {
       let preparingOrders = this.preparingOrders$.value.filter((o) => o.id !== order.id)
       this.preparingOrders$.next(preparingOrders)

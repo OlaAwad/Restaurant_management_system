@@ -30,7 +30,7 @@ export class SalesComponent implements OnInit {
   generateSalesData(orders: Order[]): SalesData{
     this.products = this.getProducts(orders)
     for(let order of this.orders){
-      let orderDate = new Date(order.OrderDate)
+      let orderDate = new Date(order.OrderDate!)
       let date = orderDate.toISOString().substring(0, 10)
       let products = order.ProductName.split(', ')
       let quantities = order.ProductQuantity.split(', ')

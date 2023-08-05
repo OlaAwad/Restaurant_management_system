@@ -34,7 +34,7 @@
             <div class="order-card" *ngFor="let order of preparingOrders$ | async">
               <div class="order-card-header">
                 <div class="order-card-id">Order #{{ order.id }}</div>
-                <div class="order-card-time">{{ order.OrderDate | date: 'medium' }}</div>
+                <div class="order-card-time">{{ order.ProcessDate | date: 'medium' }}</div>
                 <div class="order-card-status" [ngClass]="{ 'pending': order.OrderStatus === 'Pending', 'preparing': order.OrderStatus === 'Preparing', 'completed': order.OrderStatus === 'Completed' }">{{ order.OrderStatus }}</div>
               </div>
               <div class="order-card-body">
@@ -64,7 +64,7 @@
             <div class="order-card" *ngFor="let order of completedOrders$ | async">
               <div class="order-card-header">
                 <div class="order-card-id">Order #{{ order.id }}</div>
-                <div class="order-card-time">{{ order.OrderDate | date: 'medium' }}</div>
+                <div class="order-card-time">{{ order.CompleteDate | date: 'medium' }}</div>
                 <div class="order-card-status" [ngClass]="{ 'pending': order.OrderStatus === 'Pending', 'preparing': order.OrderStatus === 'Preparing', 'completed': order.OrderStatus === 'Completed' }">{{ order.OrderStatus }}</div>
               </div>
               <div class="order-card-body">

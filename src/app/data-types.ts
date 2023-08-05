@@ -55,7 +55,9 @@ export interface Order{
     ProductPrice: string,
     ProductNotes: string,
     TotalPrice: number,
-    OrderDate: Date,
+    OrderDate?: Date,
+    ProcessDate?: Date,
+    CompleteDate?: Date
     // CardHolderName?: string,
     // CardNumber?: number,
     // ExpirationDate?: Date,
